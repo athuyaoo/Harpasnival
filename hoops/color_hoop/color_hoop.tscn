@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://hoops/color_hoop/color_hoop.gd" type="Script" id=1]
+[ext_resource path="res://hoops/color_hoop/red_hoop.png" type="Texture" id=2]
+[ext_resource path="res://hoops/color_hoop/blue_hoop.png" type="Texture" id=3]
+[ext_resource path="res://hoops/color_hoop/purple_hoop.png" type="Texture" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 12.1067
+height = 15.2938
+
+[node name="ColorHoop" type="Area2D"]
+monitorable = false
+script = ExtResource( 1 )
+blue_hoop = ExtResource( 3 )
+red_hoop = ExtResource( 4 )
+purple_hoop = ExtResource( 2 )
+transition_speed = 1.67059
+current_hoop_color = 2
+blue_ball_color = Color( 0.0470588, 0.152941, 1, 1 )
+red_ball_color = Color( 0.560784, 0.0313726, 0.0313726, 1 )
+purple_ball_color = Color( 0.905882, 0.0588235, 1, 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_ColorHoop_body_entered"]
