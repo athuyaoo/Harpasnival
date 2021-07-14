@@ -8,14 +8,7 @@ export var throwing_speed = 500
 export(PackedScene) var ball_scene = preload("res://ball/ball.tscn")
 
 onready var throw_direction = $Direction/ThrowDirection
-var throw = 0
 var velocity = Vector2.ZERO
-
-# Right now player can throw in any state, move this to states you want it to throw
-func _unhandled_input(event):
-	if event.is_action_pressed("throw"):
-		throw+=1
-		throw()
 
 # Throwing mechanic
 func throw():

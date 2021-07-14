@@ -12,6 +12,8 @@
 extents = Vector2( 18, 27 )
 
 [node name="Player" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 5
 script = ExtResource( 2 )
 
 [node name="Direction" type="Node2D" parent="."]
@@ -49,5 +51,3 @@ script = ExtResource( 4 )
 
 [node name="Air" type="Node" parent="StateMachine"]
 script = ExtResource( 6 )
-
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

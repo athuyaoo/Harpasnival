@@ -1,5 +1,10 @@
 extends PlayerState
 
+# Right now player can throw in any state, move this to states you want it to throw
+func handle_input(event: InputEvent):
+	if event.is_action_pressed("throw"):
+		player.throw()
+
 func physics_update(delta: float) -> void:
 	# Movement
 	var input_direction_x = player.get_input_direction()

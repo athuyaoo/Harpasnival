@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://hoops/color_hoop/color_hoop.gd" type="Script" id=1]
 [ext_resource path="res://hoops/color_hoop/red_hoop.png" type="Texture" id=2]
@@ -9,22 +9,35 @@
 radius = 12.1067
 height = 15.2938
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 30, 30 )
+
 [node name="ColorHoop" type="Area2D"]
 monitorable = false
+collision_mask = 2
 script = ExtResource( 1 )
 blue_hoop = ExtResource( 3 )
 red_hoop = ExtResource( 4 )
 purple_hoop = ExtResource( 2 )
-transition_speed = 1.67059
-current_hoop_color = 2
 blue_ball_color = Color( 0.0470588, 0.152941, 1, 1 )
 red_ball_color = Color( 0.560784, 0.0313726, 0.0313726, 1 )
 purple_ball_color = Color( 0.905882, 0.0588235, 1, 1 )
+current_hoop_color = 2
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 2, 0 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 2, 2 )
+shape = SubResource( 2 )
 
 [connection signal="body_entered" from="." to="." method="_on_ColorHoop_body_entered"]
