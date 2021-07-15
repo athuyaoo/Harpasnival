@@ -8,6 +8,7 @@ _data = [ Vector2( 0.022, 1 ), 0.0, -1.99092, 0, 0, Vector2( 1, 0 ), -0.396037, 
 [node name="Simple Explosion" type="Node2D"]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
 amount = 60
 lifetime = 2.0
 one_shot = true
