@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://vfx/THICCer star.png" type="Texture" id=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0.006, 0.990798 ), 0.0, -0.0652657, 0, 0, Vector2( 0.998, 0 ), -1.68438, 0.0, 0, 0 ]
+
+[node name="Ball Trail" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 25
+lifetime = 0.5
+local_coords = false
+texture = ExtResource( 2 )
+emission_shape = 1
+emission_sphere_radius = 8.0
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 150.0
+initial_velocity_random = 0.25
+scale_amount = 2.0
+scale_amount_random = 0.3
+scale_amount_curve = SubResource( 1 )
