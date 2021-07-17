@@ -1,11 +1,16 @@
 extends PlayerState
 
+
 func enter(msg := {}) -> void:
 	if msg.has("do_jump"):
 		player.velocity.y = -player.jump_impulse
 
+func exit():
+	player.update_held_item_position()
+
 func physics_update(delta: float) -> void:
 	# Movement
+
 	var input_direction_x = player.get_input_direction()
 	player.update_direction(input_direction_x)
 	player.velocity.x = player.speed * input_direction_x
