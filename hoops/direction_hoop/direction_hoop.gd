@@ -1,3 +1,4 @@
+tool
 extends Hoop
 
 const DirectionAngle = Constants.DirectionAngle
