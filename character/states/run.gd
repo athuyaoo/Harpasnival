@@ -1,5 +1,8 @@
 extends PlayerState
 
+func enter(msg := {}):
+	player.animation_player.play('run')
+
 # Right now player can throw in any state, move this to states you want it to throw
 func handle_input(event: InputEvent):
 	if event.is_action_pressed("throw"):
@@ -25,3 +28,5 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("Air", {do_jump = true})
 	elif is_equal_approx(input_direction_x, 0.0):
 		state_machine.transition_to("Idle")
+func exit():
+	player.animation_player.stop()
