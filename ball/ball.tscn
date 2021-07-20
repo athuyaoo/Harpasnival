@@ -5,10 +5,10 @@
 [ext_resource path="res://ball/ball_face.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 18.5154
+radius = 11.0
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 1.0
+radius = 2.0
 
 [sub_resource type="Animation" id=3]
 resource_name = "bouncing"
@@ -59,7 +59,6 @@ hframes = 4
 frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource( 1 )
 
 [node name="Face" type="Sprite" parent="."]

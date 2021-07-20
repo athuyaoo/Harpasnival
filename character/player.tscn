@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://character/player_sprite.png" type="Texture" id=1]
 [ext_resource path="res://character/player.gd" type="Script" id=2]
@@ -6,10 +6,58 @@
 [ext_resource path="res://character/states/run.gd" type="Script" id=4]
 [ext_resource path="res://character/states/idle.gd" type="Script" id=5]
 [ext_resource path="res://character/states/air.gd" type="Script" id=6]
+[ext_resource path="res://character/AnimationPlayer.gd" type="Script" id=7]
 [ext_resource path="res://character/throw_direction.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 18, 27 )
+extents = Vector2( 18, 26 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "run"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Direction/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 11 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "throw"
+length = 0.65
+tracks/0/type = "value"
+tracks/0/path = NodePath("Direction/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 12, 13, 14, 15, 16, 17 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "resume"
+} ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( -32, -32 )
@@ -19,35 +67,26 @@ script = ExtResource( 2 )
 
 [node name="Direction" type="Node2D" parent="."]
 
-[node name="ThrowPosition" type="Position2D" parent="Direction"]
-position = Vector2( 64, 0 )
-script = ExtResource( 8 )
-
 [node name="Sprite" type="Sprite" parent="Direction"]
 texture = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="DetectHoop" type="RayCast2D" parent="Direction"]
-position = Vector2( 32, 0 )
-enabled = true
-cast_to = Vector2( 32, 0 )
-collision_mask = 8
+hframes = 12
+vframes = 2
+frame = 3
 
 [node name="PlacePosition" type="Position2D" parent="Direction"]
-position = Vector2( 80, 0 )
+position = Vector2( 72, 0 )
+
+[node name="ThrowPosition" type="Position2D" parent="Direction"]
+position = Vector2( 32, 0 )
+script = ExtResource( 8 )
+
+[node name="RayCast2D" type="RayCast2D" parent="Direction"]
+position = Vector2( 72, -64 )
+cast_to = Vector2( 0, 128 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 2 )
+position = Vector2( 0, 4 )
 shape = SubResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Timer" type="Timer" parent="."]
-process_mode = 0
-wait_time = 2.0
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 3 )
@@ -61,3 +100,8 @@ script = ExtResource( 4 )
 
 [node name="Air" type="Node" parent="StateMachine"]
 script = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/run = SubResource( 2 )
+anims/throw = SubResource( 3 )
+script = ExtResource( 7 )
