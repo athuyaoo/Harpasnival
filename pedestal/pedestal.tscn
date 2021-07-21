@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://pedestal/pedestal.png" type="Texture" id=1]
+
+[node name="Pedestal" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -64 )
+texture = ExtResource( 1 )
+offset = Vector2( -20, 16 )
+hframes = 2
