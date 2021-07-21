@@ -57,7 +57,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Harpasnival"
-run/main_scene="res://level design/Level 1.tscn"
+run/main_scene="res://level design/Level 2.tscn"
 
 [autoload]
 
