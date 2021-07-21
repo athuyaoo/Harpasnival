@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hoop_pass.wav-05e012d00e2756ba45ba04270c7d189d.sample"
+
+[deps]
+
+source_file="res://sfx/hoop_pass.wav"
+dest_files=[ "res://.import/hoop_pass.wav-05e012d00e2756ba45ba04270c7d189d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
