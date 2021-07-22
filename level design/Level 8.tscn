@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://targets/target.tscn" type="PackedScene" id=1]
 [ext_resource path="res://hoops/color_hoop/color_hoop.tscn" type="PackedScene" id=2]
+[ext_resource path="res://hoops/duplicator_hoop/duplicator_hoop.tscn" type="PackedScene" id=3]
 [ext_resource path="res://pedestal/pedestal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://hoops/direction_hoop/direction_hoop.tscn" type="PackedScene" id=5]
 [ext_resource path="res://character/player.tscn" type="PackedScene" id=6]
@@ -10,38 +11,54 @@
 [node name="Level 8" type="Node2D"]
 
 [node name="Target" parent="." instance=ExtResource( 1 )]
-position = Vector2( 992, 480 )
+position = Vector2( 928, 96 )
 current_target_color = 1
 
+[node name="Target2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 864, 96 )
+
+[node name="DuplicatorHoop" parent="." instance=ExtResource( 3 )]
+position = Vector2( 224, 96 )
+second_direction = 45
+
 [node name="ColorHoop" parent="." instance=ExtResource( 2 )]
-position = Vector2( 736, 480 )
+position = Vector2( 288, 96 )
 hoop_color = 1
 
+[node name="ColorHoop2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 288, 160 )
+
 [node name="DirectionHoop" parent="." instance=ExtResource( 5 )]
-position = Vector2( 416, 96 )
-available_directions = [ 135, 45 ]
+position = Vector2( 352, 224 )
 
 [node name="DirectionHoop2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 544, 224 )
-available_directions = [ -180, 135 ]
+position = Vector2( 352, 96 )
 
 [node name="DirectionHoop3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 672, 480 )
-input_pickable = true
-available_directions = [ -45, 0 ]
+position = Vector2( 480, 96 )
 
 [node name="DirectionHoop4" parent="." instance=ExtResource( 5 )]
-position = Vector2( 288, 224 )
-input_pickable = true
-available_directions = [ -180, 135 ]
+position = Vector2( 480, 224 )
+
+[node name="DirectionHoop5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 480, 352 )
+
+[node name="DirectionHoop6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 608, 352 )
+
+[node name="DirectionHoop7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 608, 224 )
+
+[node name="DirectionHoop8" parent="." instance=ExtResource( 5 )]
+position = Vector2( 608, 96 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 96, 352 )
+position = Vector2( 96, 96 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 7 )
 format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 65536, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131076, 0, 0, 131078, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 196608, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 262144, 0, 0, 262147, 0, 0, 262148, 0, 0, 262150, 0, 0, 262152, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 327680, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393222, 0, 0, 393224, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 458756, 0, 0, 458768, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0 )
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 65536, 0, 0, 65551, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131077, 0, 0, 131079, 0, 0, 131081, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 196611, 0, 0, 196612, 0, 0, 196619, 0, 0, 262148, 0, 0, 262149, 0, 0, 262151, 0, 0, 262153, 0, 0, 262155, 0, 0, 327685, 0, 0, 327691, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0 )
 
 [node name="Pedestal" parent="." instance=ExtResource( 4 )]
-position = Vector2( 96, 96 )
+position = Vector2( 160, 96 )
