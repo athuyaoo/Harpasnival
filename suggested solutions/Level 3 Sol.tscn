@@ -14,7 +14,7 @@ position = Vector2( 96, 224 )
 current_target_color = 2
 
 [node name="ColorHoop" parent="." instance=ExtResource( 1 )]
-position = Vector2( 544, 96 )
+position = Vector2( 224, 224 )
 input_pickable = true
 
 [node name="ColorHoop2" parent="." instance=ExtResource( 1 )]
