@@ -23,12 +23,12 @@ position = Vector2( 608, 224 )
 current_target_color = 1
 
 [node name="ColorHoop" parent="." instance=ExtResource( 1 )]
-position = Vector2( 544, 352 )
+position = Vector2( 288, 352 )
 input_pickable = true
 hoop_color = 1
 
 [node name="ColorHoop2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 480, 288 )
+position = Vector2( 416, 352 )
 input_pickable = true
 hoop_color = 1
 
@@ -38,17 +38,17 @@ input_pickable = true
 second_direction = -45
 
 [node name="DuplicatorHoop2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 544, 288 )
+position = Vector2( 416, 288 )
 input_pickable = true
 second_direction = 45
 
 [node name="DirectionHoop" parent="." instance=ExtResource( 4 )]
-position = Vector2( 416, 352 )
+position = Vector2( 352, 352 )
 input_pickable = true
-available_directions = [ 45, 0, -45 ]
+available_directions = [ -45 ]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 352, 288 )
+position = Vector2( 224, 352 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 6 )

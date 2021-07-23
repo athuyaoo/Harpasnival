@@ -30,6 +30,7 @@ position = Vector2( 288, 160 )
 
 [node name="DirectionHoop" parent="." instance=ExtResource( 5 )]
 position = Vector2( 352, 224 )
+available_directions = [ 135 ]
 
 [node name="DirectionHoop2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 352, 96 )
@@ -52,13 +53,20 @@ position = Vector2( 608, 224 )
 [node name="DirectionHoop8" parent="." instance=ExtResource( 5 )]
 position = Vector2( 608, 96 )
 
+[node name="DirectionHoop9" parent="." instance=ExtResource( 5 )]
+position = Vector2( 352, 352 )
+
+[node name="DirectionHoop10" parent="." instance=ExtResource( 5 )]
+position = Vector2( 224, 352 )
+available_directions = [ 0 ]
+
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 96, 96 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 7 )
 format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 65536, 0, 0, 65551, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131077, 0, 0, 131079, 0, 0, 131081, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 196611, 0, 0, 196612, 0, 0, 196619, 0, 0, 262148, 0, 0, 262149, 0, 0, 262151, 0, 0, 262153, 0, 0, 262155, 0, 0, 327685, 0, 0, 327691, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0 )
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 65536, 0, 0, 65551, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131077, 0, 0, 131079, 0, 0, 131081, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 196611, 0, 0, 196612, 0, 0, 196619, 0, 0, 262146, 0, 0, 262147, 0, 0, 262149, 0, 0, 262151, 0, 0, 262153, 0, 0, 262155, 0, 0, 327682, 0, 0, 327691, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0 )
 
 [node name="Pedestal" parent="." instance=ExtResource( 4 )]
 position = Vector2( 160, 96 )
