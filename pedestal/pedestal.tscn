@@ -5,6 +5,6 @@
 [node name="Pedestal" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -32, 0 )
+position = Vector2( 0, 32 )
 texture = ExtResource( 1 )
 hframes = 2
