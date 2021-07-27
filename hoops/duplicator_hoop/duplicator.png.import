@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Accelerator.png-96a98a89d64683f00c9e4fe7075b8bdc.stex"
+path="res://.import/duplicator.png-96d4765d8fce30347715058fe840edb7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art assets/Accelerator.png"
-dest_files=[ "res://.import/Accelerator.png-96a98a89d64683f00c9e4fe7075b8bdc.stex" ]
+source_file="res://hoops/duplicator_hoop/duplicator.png"
+dest_files=[ "res://.import/duplicator.png-96d4765d8fce30347715058fe840edb7.stex" ]
 
 [params]
 
