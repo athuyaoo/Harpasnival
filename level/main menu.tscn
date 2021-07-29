@@ -283,10 +283,10 @@ Music used
 (Title screen) Currently untitled song by 
 Hagu-nyan's Cozy Corner
 (Main game) Off to Osaka by Kevin MacLeod
+Jazz in Paris by Media Right Productions
 
 Tilemaps and Background
-Kenney Game Assets
-Fantasy Skybox FREE"
+Kenney Game Assets, Fantasy Skybox FREE"
 align = 1
 
 [node name="Tween" type="Tween" parent="CanvasLayer/MenuRoot"]

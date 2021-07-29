@@ -41,3 +41,4 @@ func _on_BallDetector_area_entered(area):
 		var ball_velocity = Vector2.RIGHT* 200
 		body.linear_velocity = ball_velocity.rotated(deg2rad(first_direction))
 		throw_extra(ball_velocity.rotated(deg2rad(second_direction)), body.current_color)
+		hoop_sound.play()

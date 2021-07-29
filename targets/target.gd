@@ -7,6 +7,8 @@ export(Texture) var red_target
 export(Texture) var purple_target
 export(TargetColor) var current_target_color = TargetColor.BLUE setget set_target_color
 
+onready var destroy_sound := $SoundDestroy
+
 func get_texture(color):
 	var textureDict = {
 		TargetColor.BLUE: blue_target,

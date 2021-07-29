@@ -4,6 +4,7 @@ extends PlayerState
 func enter(msg := {}) -> void:
 	if msg.has("do_jump"):
 		player.velocity.y = -player.jump_impulse
+		player.jump_sound.play()
 
 func exit():
 	player.update_held_item_position()

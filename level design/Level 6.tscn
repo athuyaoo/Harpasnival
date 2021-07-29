@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://targets/target.tscn" type="PackedScene" id=1]
 [ext_resource path="res://hoops/color_hoop/color_hoop.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://hoops/direction_hoop/direction_hoop.tscn" type="PackedScene" id=5]
 [ext_resource path="res://character/player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://level/assets/tileset.tres" type="TileSet" id=7]
+[ext_resource path="res://music/Game Music 2.tscn" type="PackedScene" id=8]
 
 [node name="Level 6" type="Node2D"]
 
@@ -60,3 +61,5 @@ position = Vector2( 160, 96 )
 position = Vector2( 498.878, 240.99 )
 current = true
 zoom = Vector2( 0.9, 0.9 )
+
+[node name="Game Music 2" parent="." instance=ExtResource( 8 )]

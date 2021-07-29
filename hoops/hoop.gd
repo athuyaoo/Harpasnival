@@ -6,6 +6,7 @@ extends KinematicBody2D
 export var can_pick_up = false setget set_can_pick_up
 var is_picked_up = false setget set_is_picked_up
 
+onready var hoop_sound := $SoundHoop
 
 func pick_up():
 	if !can_pick_up:

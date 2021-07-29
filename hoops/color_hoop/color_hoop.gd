@@ -25,4 +25,4 @@ func set_hoop_color(color):
 func _on_BallDetector_body_entered(body: PhysicsBody2D):
 	if body is Ball:
 		body.set_color(hoop_color)
-
+		hoop_sound.play()

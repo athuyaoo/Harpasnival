@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://hoops/direction_hoop/Accelerator.png" type="Texture" id=1]
 [ext_resource path="res://hoops/direction_hoop/direction_hoop.gd" type="Script" id=2]
 [ext_resource path="res://hoops/hoop.tscn" type="PackedScene" id=3]
 [ext_resource path="res://hoops/ball_detector.tscn" type="PackedScene" id=4]
 [ext_resource path="res://hoops/arrow.png" type="Texture" id=5]
+[ext_resource path="res://sfx/adjust.wav" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
@@ -26,6 +27,9 @@ offset = Vector2( 32, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DirectionChanger" index="0"]
 shape = SubResource( 1 )
+
+[node name="SoundDirection" type="AudioStreamPlayer" parent="." index="8"]
+stream = ExtResource( 6 )
 
 [connection signal="area_entered" from="BallDetector" to="." method="_on_BallDetector_area_entered"]
 [connection signal="input_event" from="DirectionChanger" to="." method="_on_DirectionChanger_input_event"]

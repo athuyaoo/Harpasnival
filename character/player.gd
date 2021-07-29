@@ -16,6 +16,11 @@ var velocity = Vector2.ZERO
 var held_item : Hoop
 onready var scene_tree = get_tree()
 
+# Sounds
+onready var jump_sound := $SoundJump
+onready var pickup_sound := $SoundPickup
+onready var place_sound := $SoundPlace
+onready var throw_sound := $SoundThrow
 
 # Throwing mechanic
 func throw():
@@ -24,6 +29,7 @@ func throw():
 	var scene_instance : RigidBody2D = ball_scene.instance()
 	scene_instance.set_name("ball")
 	animation_player.play("throw")
+	throw_sound.play()
 	yield(animation_player, "resume")
 
 	get_parent().add_child(scene_instance)
@@ -53,12 +59,14 @@ func pick_up():
 		return
 	detected_hoop.pick_up()
 	held_item = detected_hoop
+	pickup_sound.play()
 
 func place_down():
 	assert(held_item != null)
 	if (held_item.can_place_down()):
 		held_item.place_down()
 		held_item = null
+		place_sound.play()
 
 func update_held_item_position():
 	if (!held_item):

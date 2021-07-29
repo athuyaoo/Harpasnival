@@ -11,5 +11,5 @@ dest_files=[ "res://.import/hoop_pass_2.mp3-1aea5d71995682bf5c3bd9b7f75c63b3.mp3
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

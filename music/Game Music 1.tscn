@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://music/off-to-osaka-by-kevin-macleod-from-filmmusic-io.ogg" type="AudioStream" id=1]
+
+[node name="Game Music 1" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+autoplay = true
