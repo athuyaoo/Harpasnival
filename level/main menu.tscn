@@ -1,0 +1,297 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://art assets/title screen.png" type="Texture" id=1]
+[ext_resource path="res://level/ui/play button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://art assets/title logo.png" type="Texture" id=3]
+[ext_resource path="res://level/ui/credits button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://level/ui/level select button.tscn" type="PackedScene" id=5]
+[ext_resource path="res://fonts/hvd_comic_serif/HVD_Comic_Serif_Pro.otf" type="DynamicFontData" id=6]
+[ext_resource path="res://fonts/Delius/Delius-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://level/ui/menu_transition.gd" type="Script" id=8]
+[ext_resource path="res://level/ui/back button.tscn" type="PackedScene" id=9]
+[ext_resource path="res://level/ui/level_select.gd" type="Script" id=10]
+[ext_resource path="res://level/ui/level button.tscn" type="PackedScene" id=11]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 0.188235 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 0, 0.223529 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 100
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 60
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[node name="Title Screen" type="Node2D"]
+
+[node name="title screen" type="Sprite" parent="."]
+modulate = Color( 0.811765, 0.807843, 0.796078, 1 )
+position = Vector2( 689.779, 384.161 )
+scale = Vector2( 0.732814, 0.732814 )
+texture = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MenuRoot" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_top = 30.0
+margin_right = -30.0
+margin_bottom = -30.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main Menu" type="MarginContainer" parent="CanvasLayer/MenuRoot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 17.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MenuRoot/Main Menu"]
+margin_right = 1306.0
+margin_bottom = 725.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MenuRoot/Main Menu/VBoxContainer"]
+margin_right = 1306.0
+margin_bottom = 236.0
+texture = ExtResource( 3 )
+stretch_mode = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MenuRoot/Main Menu/VBoxContainer"]
+margin_top = 240.0
+margin_right = 1306.0
+margin_bottom = 725.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayer/MenuRoot/Main Menu/VBoxContainer/HBoxContainer"]
+margin_right = 752.0
+margin_bottom = 485.0
+size_flags_horizontal = 3
+
+[node name="play button" parent="CanvasLayer/MenuRoot/Main Menu/VBoxContainer/HBoxContainer/Buttons" instance=ExtResource( 2 )]
+margin_right = 752.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+
+[node name="level select button" parent="CanvasLayer/MenuRoot/Main Menu/VBoxContainer/HBoxContainer/Buttons" instance=ExtResource( 5 )]
+margin_top = 163.0
+margin_right = 752.0
+margin_bottom = 322.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+
+[node name="credits button" parent="CanvasLayer/MenuRoot/Main Menu/VBoxContainer/HBoxContainer/Buttons" instance=ExtResource( 4 )]
+margin_top = 326.0
+margin_right = 752.0
+margin_bottom = 485.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+
+[node name="Empty Space" type="HBoxContainer" parent="CanvasLayer/MenuRoot/Main Menu/VBoxContainer/HBoxContainer"]
+margin_left = 756.0
+margin_right = 1306.0
+margin_bottom = 485.0
+rect_min_size = Vector2( 550, 0 )
+size_flags_horizontal = 0
+
+[node name="Level Menu" type="MarginContainer" parent="CanvasLayer/MenuRoot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1396.0
+margin_right = 1396.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/MenuRoot/Level Menu"]
+modulate = Color( 1, 1, 1, 0.270588 )
+margin_right = 1306.0
+margin_bottom = 708.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MenuRoot/Level Menu"]
+margin_right = 1306.0
+margin_bottom = 708.0
+script = ExtResource( 10 )
+base_button = ExtResource( 11 )
+grid = NodePath("CenterContainer/Level Grid")
+
+[node name="Level Center Container" type="CenterContainer" parent="CanvasLayer/MenuRoot/Level Menu/VBoxContainer"]
+margin_right = 1306.0
+margin_bottom = 137.0
+size_flags_vertical = 0
+
+[node name="Level Label" type="RichTextLabel" parent="CanvasLayer/MenuRoot/Level Menu/VBoxContainer/Level Center Container"]
+margin_left = 328.0
+margin_right = 978.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 650, 0 )
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_fonts/normal_font = SubResource( 3 )
+text = "Level Select"
+fit_content_height = true
+scroll_active = false
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/MenuRoot/Level Menu/VBoxContainer"]
+margin_top = 141.0
+margin_right = 1306.0
+margin_bottom = 545.0
+size_flags_vertical = 3
+
+[node name="Level Grid" type="GridContainer" parent="CanvasLayer/MenuRoot/Level Menu/VBoxContainer/CenterContainer"]
+margin_left = 653.0
+margin_top = 202.0
+margin_right = 653.0
+margin_bottom = 202.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back Button" parent="CanvasLayer/MenuRoot/Level Menu/VBoxContainer" instance=ExtResource( 9 )]
+margin_top = 549.0
+margin_right = 350.0
+margin_bottom = 708.0
+
+[node name="Credit Menu" type="MarginContainer" parent="CanvasLayer/MenuRoot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1396.0
+margin_right = 1396.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MenuRoot/Credit Menu"]
+modulate = Color( 1, 1, 1, 0.270588 )
+margin_right = 1306.0
+margin_bottom = 718.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MenuRoot/Credit Menu"]
+margin_right = 1306.0
+margin_bottom = 718.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credit Center Container" type="CenterContainer" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer"]
+margin_right = 1306.0
+margin_bottom = 137.0
+size_flags_vertical = 0
+
+[node name="Credit Label" type="RichTextLabel" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer/Credit Center Container"]
+margin_left = 443.0
+margin_right = 863.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 420, 0 )
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_fonts/normal_font = SubResource( 3 )
+text = "Credits"
+fit_content_height = true
+scroll_active = false
+
+[node name="Label" type="Label" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer"]
+margin_top = 141.0
+margin_right = 1306.0
+margin_bottom = 218.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 4 )
+text = "Made by the NUS Games Development Group"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer"]
+margin_top = 222.0
+margin_right = 1306.0
+margin_bottom = 718.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer/HBoxContainer"]
+margin_right = 651.0
+margin_bottom = 496.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 651.0
+margin_bottom = 333.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+text = "Prototyping and Programming
+Thuya Oo
+
+Character Design and Animation
+Cheng Geng
+
+Level Design, Title Art, Minor Art Assets
+Hagu-nyan"
+align = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 337.0
+margin_right = 651.0
+margin_bottom = 496.0
+
+[node name="Back Button" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer/HBoxContainer/VBoxContainer/CenterContainer" instance=ExtResource( 9 )]
+margin_left = 150.0
+margin_right = 500.0
+
+[node name="Label2" type="Label" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer/HBoxContainer"]
+margin_left = 655.0
+margin_right = 1306.0
+margin_bottom = 496.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+text = "Fonts used
+Delius Regular, HVD Comic Serif Pro
+
+Music used
+(Title screen) Currently untitled song by 
+Hagu-nyan's Cozy Corner
+(Main game) Off to Osaka by Kevin MacLeod
+
+Tilemaps and Background
+Kenney Game Assets
+Fantasy Skybox FREE"
+align = 1
+
+[node name="Tween" type="Tween" parent="CanvasLayer/MenuRoot"]
+
+[connection signal="pressed" from="CanvasLayer/MenuRoot/Main Menu/VBoxContainer/HBoxContainer/Buttons/play button" to="CanvasLayer/MenuRoot" method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MenuRoot/Main Menu/VBoxContainer/HBoxContainer/Buttons/level select button" to="CanvasLayer/MenuRoot" method="_on_level_select_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MenuRoot/Main Menu/VBoxContainer/HBoxContainer/Buttons/credits button" to="CanvasLayer/MenuRoot" method="_on_credits_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MenuRoot/Level Menu/VBoxContainer/Back Button" to="CanvasLayer/MenuRoot" method="_on_Back_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer/HBoxContainer/VBoxContainer/CenterContainer/Back Button" to="CanvasLayer/MenuRoot" method="_on_Back_Button_pressed"]

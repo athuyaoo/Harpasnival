@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://hoops/color_hoop/color_hoop.tscn" type="PackedScene" id=1]
 [ext_resource path="res://hoops/direction_hoop/direction_hoop.tscn" type="PackedScene" id=2]
@@ -6,6 +6,18 @@
 [ext_resource path="res://targets/target.tscn" type="PackedScene" id=4]
 [ext_resource path="res://level/assets/tileset.tres" type="TileSet" id=5]
 [ext_resource path="res://pedestal/pedestal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://fonts/Delius/Delius-Regular.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 7 )
 
 [node name="Level 1" type="Node2D"]
 
@@ -35,3 +47,34 @@ position = Vector2( 160, 160 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 491.083, 312.813 )
 current = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 296.0
+margin_top = 228.0
+margin_right = 933.0
+margin_bottom = 608.0
+custom_styles/normal = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Newbie's Guide to being a clown: 
+Move with arrow keys, throw with C
+
+1) Activate the hoops by adding weight on the pedestal
+2) Throw the ball through a directional hoop
+3) Destroy the Pillars of Society :D"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+margin_left = 296.0
+margin_top = 562.0
+margin_right = 933.0
+margin_bottom = 599.0
+custom_styles/normal = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "(yes, we stole the idea from Genshin Impact)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
