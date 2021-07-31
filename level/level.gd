@@ -17,7 +17,6 @@ func check_win():
 	var all_targets_destroyed = true
 	for target in targets:
 		all_targets_destroyed = all_targets_destroyed and target.is_destroyed
-	print(all_targets_destroyed)
 	if not all_targets_destroyed:
 		return
 	on_all_targets_destroyed()
@@ -25,9 +24,9 @@ func check_win():
 
 func on_all_targets_destroyed():
 	completed = true
+	print("ALL TARGETS DESTROYED!")
 
 func on_ball_self_destructed():
-	print('test')
 	var balls = get_tree().get_nodes_in_group("balls")
 	var all_ball_destroyed = true
 	for ball in balls:
