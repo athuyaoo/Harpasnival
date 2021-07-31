@@ -7,7 +7,7 @@
 [ext_resource path="res://level/assets/tileset.tres" type="TileSet" id=5]
 [ext_resource path="res://pedestal/pedestal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://fonts/Delius/Delius-Regular.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://level design/level.gd" type="Script" id=8]
+[ext_resource path="res://level/level.gd" type="Script" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 1, 1, 1 )
