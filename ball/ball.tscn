@@ -5,7 +5,7 @@
 [ext_resource path="res://ball/ball_face.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 6.0
+radius = 4.0
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 2.0
