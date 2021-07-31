@@ -1,23 +1,145 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://hoops/color_hoop/color_hoop.tscn" type="PackedScene" id=1]
 [ext_resource path="res://hoops/direction_hoop/direction_hoop.tscn" type="PackedScene" id=2]
 [ext_resource path="res://character/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://targets/target.tscn" type="PackedScene" id=4]
-[ext_resource path="res://level/assets/tileset.tres" type="TileSet" id=5]
+[ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/planetMid.png" type="Texture" id=5]
 [ext_resource path="res://pedestal/pedestal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://hoops/duplicator_hoop/duplicator_hoop.tscn" type="PackedScene" id=7]
 [ext_resource path="res://fonts/Delius/Delius-Regular.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://music/Game Music 2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://level/assets/copy_collision.gd" type="Script" id=9]
+[ext_resource path="res://level/assets/tile.png" type="Texture" id=10]
+[ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/grassCenter.png" type="Texture" id=11]
+[ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/planetCenter.png" type="Texture" id=12]
+[ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/stoneCenter.png" type="Texture" id=13]
+[ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/stoneMid.png" type="Texture" id=14]
+[ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/grassMid.png" type="Texture" id=15]
+[ext_resource path="res://tilemaps/skyboxes/FS002_Sunrise.tscn" type="PackedScene" id=16]
+[ext_resource path="res://level design/level.gd" type="Script" id=17]
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 15.1755, 0.0585632, 31.9204, 0, 47.9676, 0, 64, 15.6406, 64, 47.9676, 49.1304, 64, 15.1755, 64, 0, 48.4327, 0.523697, 15.6406 )
+
+[sub_resource type="TileSet" id=2]
+resource_local_to_scene = true
+0/name = "tile"
+0/texture = ExtResource( 10 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 5 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "grassCenter.png 1"
+1/texture = ExtResource( 11 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 64, 64 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "grassMid.png 2"
+2/texture = ExtResource( 15 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 64, 64 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "planetCenter.png 3"
+3/texture = ExtResource( 12 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 0, 0, 64, 64 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+4/name = "planetMid.png 4"
+4/texture = ExtResource( 5 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 0, 0, 64, 64 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
+5/name = "stoneCenter.png 5"
+5/texture = ExtResource( 13 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 0, 0, 64, 64 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
+5/shapes = [  ]
+5/z_index = 0
+6/name = "stoneMid.png 6"
+6/texture = ExtResource( 14 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 0, 0, 64, 64 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
+6/shapes = [  ]
+6/z_index = 0
+
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 size = 28
 font_data = ExtResource( 8 )
 
 [node name="Level 4" type="Node2D"]
+script = ExtResource( 17 )
+
+[node name="FS002_Sunrise" parent="." instance=ExtResource( 16 )]
 
 [node name="Target" parent="." instance=ExtResource( 4 )]
 position = Vector2( 480, 160 )
@@ -49,12 +171,13 @@ position = Vector2( 160, 288 )
 second_direction = -45
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 5 )
+tile_set = SubResource( 2 )
 format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 65536, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 131072, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 196608, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 262144, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0 )
+tile_data = PoolIntArray( 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 65536, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 131072, 1, 0, 131082, 1, 0, 131083, 1, 0, 131084, 1, 0, 196608, 1, 0, 196612, 2, 0, 196613, 2, 0, 196614, 2, 0, 196617, 2, 0, 196618, 1, 0, 196619, 1, 0, 196620, 1, 0, 262144, 1, 0, 262153, 1, 0, 262154, 1, 0, 262155, 1, 0, 262156, 1, 0, 327680, 1, 0, 327681, 2, 0, 327682, 2, 0, 327683, 2, 0, 327684, 2, 0, 327685, 2, 0, 327686, 2, 0, 327687, 2, 0, 327688, 2, 0, 327689, 1, 0, 327690, 1, 0, 327691, 1, 0, 327692, 1, 0, 393216, 1, 0, 393217, 1, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0, 393225, 1, 0, 393226, 1, 0, 393227, 1, 0, 393228, 1, 0, 458752, 1, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0 )
+script = ExtResource( 9 )
 
 [node name="Pedestal" parent="." instance=ExtResource( 6 )]
-position = Vector2( 96, 288 )
+position = Vector2( 96, 320 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 416, 288 )
@@ -65,8 +188,8 @@ margin_left = 32.0
 margin_top = 352.0
 margin_right = 800.0
 margin_bottom = 544.0
-custom_styles/normal = SubResource( 1 )
-custom_fonts/normal_font = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "Left click on triangular direction hoops to change direction. 
 Green arrows denote active directions, black arrows denote possible directions

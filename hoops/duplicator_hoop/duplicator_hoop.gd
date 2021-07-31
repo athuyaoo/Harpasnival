@@ -42,9 +42,8 @@ func _on_BallDetector_area_entered(area):
 	if not active:
 		return
 	._on_BallDetector_area_entered(area)
-	var body = area.get_parent()
-	if body is Ball:
+	var ball = (area.get_parent() as Ball)
+	if ball and can_detect_ball:
 		var ball_velocity = Vector2.RIGHT * 200
-		body.linear_velocity = ball_velocity.rotated(deg2rad(first_direction))
-		throw_extra(ball_velocity.rotated(deg2rad(second_direction)), body.current_color)
-		hoop_sound.play()
+		ball.linear_velocity = ball_velocity.rotated(deg2rad(first_direction))
+		throw_extra(ball_velocity.rotated(deg2rad(second_direction)), ball.current_color)

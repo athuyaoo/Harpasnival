@@ -9,7 +9,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 32 )
 
-[node name="Target" type="Area2D"]
+[node name="Target" type="Area2D" groups=[
+"targets",
+]]
 position = Vector2( -32, -32 )
 collision_mask = 2
 script = ExtResource( 1 )
@@ -20,9 +22,7 @@ purple_target = ExtResource( 3 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 4 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=[
-"target",
-]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

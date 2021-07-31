@@ -60,8 +60,10 @@ func move():
 
 func pick_up():
 	var detected_hoop := detect_hoop_raycast.get_collider() as Hoop
-	print(detected_hoop)
-	if (not detected_hoop or !detected_hoop.can_pick_up or held_item != null):
+	if (not detected_hoop or not detected_hoop.can_pick_up
+			or detected_hoop.is_anything_above() or is_holding_item()):
+		return
+	if scene_tree.get_nodes_in_group("balls").size() > 0:
 		return
 	detected_hoop.pick_up()
 	held_item = detected_hoop
@@ -72,7 +74,7 @@ func pick_up():
 	update_held_item_position()
 
 func place_down():
-	assert(held_item != null)
+	assert(is_holding_item())
 	if (held_item.can_place_down()):
 		held_item.place_down()
 		held_item = null
@@ -84,23 +86,23 @@ func update_held_item_position():
 	if (!held_item):
 		return
 
-
 	var collision_point = detect_hoop_raycast.get_collision_point()
-
 	var collider = detect_hoop_raycast.get_collider()
+
 	var colliding_structure_tilemap_pos = Utils.set_position_to_tile_map(collision_point)
 	var detect_hoop_tilemap_pos = Utils.set_position_to_tile_map(detect_hoop_raycast.global_position)
 
 	var is_raycast_in_structure = false
+
 	if (collider is TileMap):
 		var tilemap := collider as TileMap
-		is_raycast_in_structure = (
-			tilemap.get_cellv(tilemap.world_to_map(detect_hoop_raycast.global_position))
-		) != TileMap.INVALID_CELL
+		var tilemap_cell = tilemap.get_cellv(tilemap.world_to_map(detect_hoop_raycast.global_position))
+		is_raycast_in_structure = tilemap_cell != TileMap.INVALID_CELL
+
 	is_raycast_in_structure =  is_raycast_in_structure or \
 		colliding_structure_tilemap_pos == detect_hoop_tilemap_pos
 
-	var cannot_place = (collider == null) or is_raycast_in_structure
+	var cannot_place = (collider == null) or is_raycast_in_structure or (collider is Area2D)
 
 	if cannot_place:
 		held_item.global_position = Utils.set_position_to_tile_map(placed_position.global_position)

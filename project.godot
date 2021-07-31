@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://character/states/state_machine.gd"
 }, {
+"base": "Area2D",
+"class": "Target",
+"language": "GDScript",
+"path": "res://targets/target.gd"
+}, {
 "base": "Node",
 "class": "Utils",
 "language": "GDScript",
@@ -51,6 +56,7 @@ _global_script_class_icons={
 "PlayerState": "",
 "State": "",
 "StateMachine": "",
+"Target": "",
 "Utils": ""
 }
 

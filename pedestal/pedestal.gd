@@ -1,16 +1,17 @@
-extends Node
+extends Area2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+signal activation_changed(is_activated)
+
+func _on_Pedestal_body_entered(body: Player) -> void:
+	if not body:
+		return
+	$Sprite.frame = 1
+	emit_signal("activation_changed", true)
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_Pedestal_body_exited(body: Player) -> void:
+	if not body:
+		return
+	$Sprite.frame = 0 # Replace with function body.
+	emit_signal("activation_changed", false)
