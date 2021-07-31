@@ -50,10 +50,8 @@ func _process(_delta):
 
 
 func _on_BallDetector_area_entered(area):
-	if not can_detect_ball:
-		return
 	var ball = (area.get_parent() as Ball)
-	if not ball:
+	if not ball or not can_detect_ball:
 		return
 
 	ball.set_active()
