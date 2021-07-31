@@ -5,9 +5,9 @@ const DirectionAngle = Constants.DirectionAngle
 var active = true
 
 export (DirectionAngle) var first_direction = DirectionAngle.RIGHT \
-		setget set_first_direction
+	setget set_first_direction
 export (DirectionAngle) var second_direction = DirectionAngle.UPPER_LEFT \
-		setget set_second_direction
+	setget set_second_direction
 export(PackedScene) var ball_scene = preload("res://ball/ball.tscn")
 
 
@@ -21,24 +21,30 @@ func set_second_direction(value):
 	second_direction = value
 
 func throw_extra(velocity: Vector2, color):
+
 	var scene_instance : Ball = ball_scene.instance()
 	assert(scene_instance != null)
 	scene_instance.set_name("extra_ball")
-	get_parent().add_child(scene_instance)
+	get_parent().call_deferred("add_child", scene_instance)
+
 	scene_instance.set_color(color)
-	scene_instance.global_position = self.global_position
+	scene_instance.global_position = global_position
 	scene_instance.linear_velocity = velocity
+
+
 	active = false
-	yield(get_tree().create_timer(0.2),"timeout")
+	yield(get_tree().create_timer(0.1),"timeout")
 	active = true
+
 
 
 func _on_BallDetector_area_entered(area):
 	if not active:
 		return
+	._on_BallDetector_area_entered(area)
 	var body = area.get_parent()
 	if body is Ball:
-		var ball_velocity = Vector2.RIGHT* 200
+		var ball_velocity = Vector2.RIGHT * 200
 		body.linear_velocity = ball_velocity.rotated(deg2rad(first_direction))
 		throw_extra(ball_velocity.rotated(deg2rad(second_direction)), body.current_color)
 		hoop_sound.play()

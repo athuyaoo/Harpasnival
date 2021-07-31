@@ -15,6 +15,7 @@ func get_texture(color):
 		ColorType.RED: red_hoop,
 		ColorType.PURPLE: purple_hoop,
 	}
+
 	return textureDict[color]
 
 func set_hoop_color(color):
@@ -22,7 +23,10 @@ func set_hoop_color(color):
 	hoop_color = color
 
 
-func _on_BallDetector_body_entered(body: PhysicsBody2D):
+func _on_BallDetector_area_entered(area):
+
+	var body = area.get_parent()
+	._on_BallDetector_area_entered(area)
 	if body is Ball:
 		body.set_color(hoop_color)
 		hoop_sound.play()

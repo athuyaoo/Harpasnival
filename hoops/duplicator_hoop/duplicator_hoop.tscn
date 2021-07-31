@@ -1,33 +1,24 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://hoops/duplicator_hoop/duplicator.png" type="Texture" id=1]
 [ext_resource path="res://hoops/duplicator_hoop/duplicator_hoop.gd" type="Script" id=2]
 [ext_resource path="res://hoops/hoop.tscn" type="PackedScene" id=3]
 [ext_resource path="res://hoops/arrow.png" type="Texture" id=4]
-[ext_resource path="res://hoops/ball_detector.tscn" type="PackedScene" id=5]
 
 [node name="DuplicatorHoop" instance=ExtResource( 3 )]
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" parent="." index="0"]
+[node name="CollisionShape2D" parent="." index="1"]
 visible = false
 
-[node name="BallDetector" parent="." index="3" instance=ExtResource( 5 )]
-
-[node name="Sprite" type="Sprite" parent="." index="4"]
-texture = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="FirstArrow" type="Sprite" parent="." index="5"]
+[node name="FirstArrow" type="Sprite" parent="." index="4"]
 texture = ExtResource( 4 )
 offset = Vector2( 32, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="SecondArrow" type="Sprite" parent="." index="6"]
+[node name="SecondArrow" type="Sprite" parent="." index="5"]
 rotation = -2.35619
 texture = ExtResource( 4 )
 offset = Vector2( 32, 0 )
@@ -35,4 +26,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[connection signal="area_entered" from="BallDetector" to="." method="_on_BallDetector_area_entered"]
+[node name="Sprite" type="Sprite" parent="." index="6"]
+modulate = Color( 0.454902, 1, 0, 1 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}

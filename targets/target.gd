@@ -11,9 +11,9 @@ onready var destroy_sound := $SoundDestroy
 
 func get_texture(color):
 	var textureDict = {
-		TargetColor.BLUE: blue_target,
-		TargetColor.RED: red_target,
-		TargetColor.PURPLE: purple_target,
+	TargetColor.BLUE: blue_target,
+	TargetColor.RED: red_target,
+	TargetColor.PURPLE: purple_target,
 	}
 	return textureDict[color]
 
@@ -28,7 +28,7 @@ func _on_Target_body_entered(body: PhysicsBody2D):
 			print(get_tree().get_nodes_in_group("target").size())
 			if get_tree().get_nodes_in_group("target").size() == 1:
 				print("WIN")
-			queue_free()
+				queue_free()
 		body.queue_free()
 
 func _process(_delta):

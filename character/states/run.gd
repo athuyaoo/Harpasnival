@@ -16,11 +16,12 @@ func handle_input(event: InputEvent):
 func physics_update(delta: float) -> void:
 	# Movement
 	var input_direction_x = player.get_input_direction()
+	player.update_held_item_position()
 	player.update_direction(input_direction_x)
 	player.velocity.x = player.speed * input_direction_x
 	player.apply_gravity(delta)
 	player.move()
-	player.update_held_item_position()
+
 	# State Transitions
 	if not player.is_on_floor():
 		state_machine.transition_to("Air")

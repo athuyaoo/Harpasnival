@@ -1,6 +1,6 @@
 extends PlayerState
 
-# Right now player can throw in any state, move this to states you want it to throw
+
 func handle_input(event: InputEvent):
 	if event.is_action_pressed("throw"):
 		player.throw()
@@ -12,6 +12,7 @@ func handle_input(event: InputEvent):
 
 
 func enter(_msg := {}) -> void:
+	player.update_held_item_position()
 	player.velocity = Vector2.ZERO
 
 

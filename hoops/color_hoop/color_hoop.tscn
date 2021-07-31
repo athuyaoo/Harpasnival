@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://hoops/ball_detector.tscn" type="PackedScene" id=1]
 [ext_resource path="res://hoops/color_hoop/color_hoop.gd" type="Script" id=2]
 [ext_resource path="res://hoops/color_hoop/blue_hoop.png" type="Texture" id=3]
 [ext_resource path="res://hoops/hoop.tscn" type="PackedScene" id=4]
@@ -8,12 +7,8 @@
 [node name="ColorHoop" instance=ExtResource( 4 )]
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" parent="." index="0"]
+[node name="CollisionShape2D" parent="." index="1"]
 visible = false
 
 [node name="Sprite" type="Sprite" parent="." index="2"]
 texture = ExtResource( 3 )
-
-[node name="BallDetector" parent="." index="3" instance=ExtResource( 1 )]
-
-[connection signal="body_entered" from="BallDetector" to="." method="_on_BallDetector_body_entered"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://hoops/hoop.gd" type="Script" id=1]
-[ext_resource path="res://sfx/activate.wav" type="AudioStream" id=2]
+[ext_resource path="res://hoops/ball_detector.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
@@ -11,6 +11,13 @@ position = Vector2( -32, -32 )
 collision_layer = 8
 collision_mask = 4
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BallDetector" parent="." groups=[
+"hoops",
+] instance=ExtResource( 2 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -28,6 +35,16 @@ __meta__ = {
 color = Color( 1, 1, 1, 0.364706 )
 polygon = PoolVector2Array( -32, -64, -32, 32, 32, 32, 32, -64 )
 
+[node name="BallDetectArea" type="Node2D" parent="."]
+visible = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="BallDetectArea"]
+color = Color( 1, 1, 1, 0.364706 )
+polygon = PoolVector2Array( -32, -64, -32, 32, 32, 32, 32, -64 )
+
 [node name="PlaceCheck" type="RayCast2D" parent="."]
 position = Vector2( 0, 24 )
 cast_to = Vector2( 0, 32 )
@@ -36,5 +53,4 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="SoundHoop" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 2 )
+[connection signal="area_entered" from="BallDetector" to="." method="_on_BallDetector_area_entered"]
