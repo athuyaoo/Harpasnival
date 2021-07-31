@@ -6,13 +6,24 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
 
-[node name="Hoop" type="KinematicBody2D"]
+[node name="Hoop" type="KinematicBody2D" groups=[
+"hoops",
+]]
 position = Vector2( -32, -32 )
 collision_layer = 8
 collision_mask = 4
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
+}
+
+[node name="AboveCheck" type="RayCast2D" parent="."]
+position = Vector2( 0, -16 )
+cast_to = Vector2( 0, -32 )
+collision_mask = 8
+collide_with_areas = true
+__meta__ = {
+"_edit_lock_": true
 }
 
 [node name="BallDetector" parent="." groups=[
@@ -26,13 +37,12 @@ __meta__ = {
 }
 
 [node name="PickupAura" type="Node2D" parent="."]
-visible = false
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Polygon2D" type="Polygon2D" parent="PickupAura"]
-color = Color( 1, 1, 1, 0.364706 )
+color = Color( 0, 0.101961, 0.984314, 0.364706 )
 polygon = PoolVector2Array( -32, -64, -32, 32, 32, 32, 32, -64 )
 
 [node name="BallDetectArea" type="Node2D" parent="."]
@@ -42,13 +52,14 @@ __meta__ = {
 }
 
 [node name="Polygon2D" type="Polygon2D" parent="BallDetectArea"]
-color = Color( 1, 1, 1, 0.364706 )
+color = Color( 0.411765, 0, 0, 0.364706 )
 polygon = PoolVector2Array( -32, -64, -32, 32, 32, 32, 32, -64 )
 
 [node name="PlaceCheck" type="RayCast2D" parent="."]
 position = Vector2( 0, 24 )
 cast_to = Vector2( 0, 32 )
 collision_mask = 9
+collide_with_areas = true
 __meta__ = {
 "_edit_lock_": true
 }
