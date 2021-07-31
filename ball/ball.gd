@@ -13,7 +13,7 @@ var active = true
 var current_color
 var is_self_destructing = false
 
-const Level := preload("res://level design/level.gd")
+const Level := preload("res://level/level.gd")
 
 
 func set_start_position( player_position: Vector2):
