@@ -74,15 +74,17 @@ vframes = 2
 frame = 3
 
 [node name="PlacePosition" type="Position2D" parent="Direction"]
-position = Vector2( 72, 0 )
+position = Vector2( 64, 0 )
 
 [node name="ThrowPosition" type="Position2D" parent="Direction"]
 position = Vector2( 32, 0 )
 script = ExtResource( 8 )
 
-[node name="RayCast2D" type="RayCast2D" parent="Direction"]
-position = Vector2( 72, -64 )
-cast_to = Vector2( 0, 128 )
+[node name="DetectHoop" type="RayCast2D" parent="Direction"]
+position = Vector2( 72, -56 )
+enabled = true
+cast_to = Vector2( 0, 160 )
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 4 )

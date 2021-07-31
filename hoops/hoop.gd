@@ -5,7 +5,7 @@ extends KinematicBody2D
 
 export var can_pick_up = false setget set_can_pick_up
 var is_picked_up = false setget set_is_picked_up
-
+var can_detect_ball := false setget set_can_detect_ball
 
 func pick_up():
 	if !can_pick_up:
@@ -40,6 +40,20 @@ func set_can_pick_up(value):
 	$PickupAura.visible = value
 	can_pick_up = value
 
+func set_can_detect_ball(value):
+	can_detect_ball = value
+
+
 func _process(_delta):
 	if is_picked_up or Engine.editor_hint:
 		global_position = Utils.set_position_to_tile_map(global_position)
+
+
+func _on_BallDetector_area_entered(area):
+	if not can_detect_ball:
+		return
+	var ball = (area.get_parent() as Ball)
+	if not ball:
+		return
+
+	ball.set_active()

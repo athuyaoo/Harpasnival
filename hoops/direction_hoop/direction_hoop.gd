@@ -37,7 +37,8 @@ func _on_DirectionChanger_input_event(viewport, event:InputEvent, shape_idx):
 
 
 func _on_BallDetector_area_entered(area):
+	._on_BallDetector_area_entered(area)
 	var body = area.get_parent()
 	if body is Ball:
 		body.set_linear_velocity(200 * Vector2.RIGHT.rotated(
-				deg2rad(available_directions[selected_direction_index])))
+			deg2rad(available_directions[selected_direction_index])))
