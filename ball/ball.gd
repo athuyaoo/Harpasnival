@@ -21,26 +21,30 @@ func set_start_position( player_position: Vector2):
 	start_position = Utils.set_position_to_tile_map(player_position)
 
 
-onready var colorDict = {
-	ColorType.BLUE: blue_ball_color,
-	ColorType.RED: red_ball_color,
-	ColorType.PURPLE: purple_ball_color,
-}
+func get_color(color_type):
+	match (color_type):
+		ColorType.BLUE:
+			return blue_ball_color
+		ColorType.RED:
+			return red_ball_color
+		ColorType.RED:
+			return purple_ball_color
+	return null
+
+
 
 func _ready() -> void:
 	var level = get_parent() as Level
 	if level == null:
 		return
-
 	connect("self_destructed", level, "on_ball_self_destructed",  [], CONNECT_DEFERRED)
-	print(self, "ready!")
+
 
 func set_active():
 	active = true
 
 func self_destruct():
 	is_self_destructing = true
-	print("self_destruct", self)
 	emit_signal("self_destructed")
 	queue_free()
 
@@ -52,9 +56,9 @@ func _physics_process(delta):
 
 
 func set_color(color):
-	if (color == null or colorDict[color] == null):
+	if (color == null or get_color(color) == null):
 		return
-	$Sprite.modulate = colorDict[color]
+	$Sprite.modulate = get_color(color)
 	current_color = color
 
 func _on_Ball_body_entered(body):
