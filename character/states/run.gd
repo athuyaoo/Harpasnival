@@ -5,8 +5,8 @@ func enter(msg := {}):
 
 # Right now player can throw in any state, move this to states you want it to throw
 func handle_input(event: InputEvent):
-	if event.is_action_pressed("throw"):
-		player.throw()
+	if event.is_action_pressed("throw") and player.can_throw():
+		state_machine.transition_to("Throw")
 	if event.is_action_pressed("move_hoop"):
 		if player.is_holding_item():
 			player.place_down()

@@ -8,6 +8,9 @@ export var throwing_speed = 200
 
 export(PackedScene) var ball_scene = preload("res://ball/ball.tscn")
 
+const pickup_sound = preload("res://sfx/pickup.wav")
+const placedown_sound = preload("res://sfx/placement.wav")
+
 onready var throw_direction := $Direction/ThrowPosition
 onready var detect_hoop_raycast := $Direction/DetectHoop
 onready var placed_position := $Direction/PlacePosition
@@ -18,16 +21,15 @@ onready var scene_tree = get_tree()
 
 var collision_point_g: Vector2
 
+func can_throw():
+	return scene_tree.get_nodes_in_group("balls").size() == 0
+
 # Throwing mechanic
 func throw():
-	if scene_tree.get_nodes_in_group("balls").size() > 0:
-		return
 	var scene_instance : Ball = ball_scene.instance()
 	scene_instance.set_name("ball")
 	animation_player.play("throw")
-
 	yield(animation_player, "resume")
-
 	get_parent().add_child(scene_instance)
 	var ball_impulse = Vector2.RIGHT.rotated(deg2rad(throw_direction.throwing_degrees))
 	ball_impulse.x *= $Direction.scale.x
@@ -63,6 +65,8 @@ func pick_up():
 	detect_hoop_raycast.add_exception(detected_hoop)
 	detect_hoop_raycast.set_collision_mask_bit(0, true)
 	detect_hoop_raycast.force_raycast_update()
+	$PlaceSound.stream = pickup_sound
+	$PlaceSound.play()
 	update_held_item_position()
 
 func place_down():
@@ -72,6 +76,8 @@ func place_down():
 		held_item = null
 		detect_hoop_raycast.clear_exceptions()
 		detect_hoop_raycast.set_collision_mask_bit(0, false)
+		$PlaceSound.stream = placedown_sound
+		$PlaceSound.play()
 
 func update_held_item_position():
 	if (!held_item):

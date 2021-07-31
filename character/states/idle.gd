@@ -2,8 +2,8 @@ extends PlayerState
 
 
 func handle_input(event: InputEvent):
-	if event.is_action_pressed("throw"):
-		player.throw()
+	if event.is_action_pressed("throw") and player.can_throw():
+		state_machine.transition_to("Throw")
 	if event.is_action_pressed("move_hoop"):
 		if player.is_holding_item():
 			player.place_down()
@@ -14,7 +14,7 @@ func handle_input(event: InputEvent):
 func enter(_msg := {}) -> void:
 	player.update_held_item_position()
 	player.velocity = Vector2.ZERO
-
+	player.animation_player.play("idle")
 
 func physics_update(delta: float) -> void:
 	# Movement

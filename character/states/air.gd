@@ -4,6 +4,8 @@ extends PlayerState
 func enter(msg := {}) -> void:
 	if msg.has("do_jump"):
 		player.velocity.y = -player.jump_impulse
+		$JumpSoundPlayer.play()
+	player.animation_player.play("in_air")
 
 func exit():
 	player.update_held_item_position()
