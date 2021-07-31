@@ -27,6 +27,7 @@ func _on_BallDetector_area_entered(area):
 
 	var body = area.get_parent()
 	._on_BallDetector_area_entered(area)
-	if body is Ball:
-		body.set_color(hoop_color)
+	var ball = (area.get_parent() as Ball)
+	if ball and can_detect_ball:
+		ball.set_color(hoop_color)
 

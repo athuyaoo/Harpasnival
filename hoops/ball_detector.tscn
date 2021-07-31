@@ -4,6 +4,7 @@
 length = 37.0
 
 [node name="BallDetector" type="Area2D"]
+monitorable = false
 collision_layer = 0
 collision_mask = 2
 

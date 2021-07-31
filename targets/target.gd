@@ -1,11 +1,16 @@
 tool
+class_name Target
 extends Area2D
+
+signal target_destroyed
 
 const TargetColor = Constants.ColorType
 export(Texture) var blue_target
 export(Texture) var red_target
 export(Texture) var purple_target
 export(TargetColor) var current_target_color = TargetColor.BLUE setget set_target_color
+
+var is_destroyed = false setget set_destroyed
 
 func get_texture(color):
 	var textureDict = {
@@ -20,14 +25,21 @@ func set_target_color(value):
 	$Sprite.texture = get_texture(value)
 	current_target_color = value
 
-func _on_Target_body_entered(body: PhysicsBody2D):
-	if body is Ball:
-		if body.current_color == current_target_color:
-			print(get_tree().get_nodes_in_group("target").size())
-			if get_tree().get_nodes_in_group("target").size() == 1:
-				print("WIN")
-				queue_free()
-		body.queue_free()
+
+func set_destroyed(value: bool):
+	is_destroyed = value
+	monitoring = !value
+	visible = !value
+
+
+func _on_Target_body_entered(ball: Ball):
+	if not ball:
+		return
+	if ball.current_color == current_target_color:
+		ball.self_destruct()
+		set_destroyed(true)
+		emit_signal("target_destroyed")
+
 
 func _process(_delta):
 	if Engine.editor_hint:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://hoops/color_hoop/color_hoop.tscn" type="PackedScene" id=1]
 [ext_resource path="res://hoops/direction_hoop/direction_hoop.tscn" type="PackedScene" id=2]
@@ -16,9 +16,10 @@
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/stoneMid.png" type="Texture" id=14]
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/grassMid.png" type="Texture" id=15]
 [ext_resource path="res://tilemaps/skyboxes/FS002_Sunrise.tscn" type="PackedScene" id=16]
+[ext_resource path="res://level design/level.gd" type="Script" id=17]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 12, 0, 8, 0, 52, 0, 64, 12, 64, 52, 52, 64, 12, 64, 0, 52, 0, 12 )
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 15.1755, 0.0585632, 31.9204, 0, 47.9676, 0, 64, 15.6406, 64, 47.9676, 49.1304, 64, 15.1755, 64, 0, 48.4327, 0.523697, 15.6406 )
 
 [sub_resource type="TileSet" id=2]
 resource_local_to_scene = true
@@ -32,14 +33,14 @@ resource_local_to_scene = true
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 1 )
+0/shape = SubResource( 5 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 1 ),
+"shape": SubResource( 5 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -136,6 +137,7 @@ size = 28
 font_data = ExtResource( 8 )
 
 [node name="Level 4" type="Node2D"]
+script = ExtResource( 17 )
 
 [node name="FS002_Sunrise" parent="." instance=ExtResource( 16 )]
 
@@ -175,7 +177,7 @@ tile_data = PoolIntArray( 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 
 script = ExtResource( 9 )
 
 [node name="Pedestal" parent="." instance=ExtResource( 6 )]
-position = Vector2( 96, 288 )
+position = Vector2( 96, 320 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 416, 288 )
