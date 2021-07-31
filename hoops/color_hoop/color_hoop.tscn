@@ -7,8 +7,8 @@
 [node name="ColorHoop" instance=ExtResource( 4 )]
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" parent="." index="1"]
-visible = false
-
 [node name="Sprite" type="Sprite" parent="." index="2"]
 texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="." index="3"]
+visible = false
