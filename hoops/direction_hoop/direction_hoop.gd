@@ -2,7 +2,7 @@ tool
 extends Hoop
 
 const DirectionAngle = Constants.DirectionAngle
-
+const ArrowDirectionScene = preload("res://hoops/direction_hoop/arrow_direction.tscn")
 export(Array, DirectionAngle) var available_directions = [
 	DirectionAngle.LOWER_RIGHT,
 	DirectionAngle.RIGHT,
@@ -16,6 +16,11 @@ var selected_direction_index = 0 setget set_selected_direction_index
 
 func _ready():
 	set_selected_direction_index(selected_direction_index)
+	var disabled_directions = $DisabledDirections
+	for direction in available_directions:
+		var arrow_direction_node = ArrowDirectionScene.instance()
+		arrow_direction_node.rotation_degrees = direction
+		disabled_directions.add_child(arrow_direction_node, true)
 
 
 func set_available_directions(value:Array):
@@ -34,6 +39,7 @@ func _on_DirectionChanger_input_event(viewport, event:InputEvent, shape_idx):
 	if get_tree().get_nodes_in_group("balls").size() > 0:
 		return
 	if event is InputEventMouseButton and event.is_pressed():
+		print('test')
 		var new_index = (selected_direction_index + 1) % available_directions.size()
 		set_selected_direction_index(new_index)
 

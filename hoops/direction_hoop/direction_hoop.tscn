@@ -3,7 +3,7 @@
 [ext_resource path="res://hoops/direction_hoop/Accelerator.png" type="Texture" id=1]
 [ext_resource path="res://hoops/direction_hoop/direction_hoop.gd" type="Script" id=2]
 [ext_resource path="res://hoops/hoop.tscn" type="PackedScene" id=3]
-[ext_resource path="res://hoops/arrow.png" type="Texture" id=5]
+[ext_resource path="res://hoops/direction_hoop/arrow_direction.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
@@ -11,24 +11,19 @@ extents = Vector2( 32, 32 )
 [node name="DirectionHoop" instance=ExtResource( 3 )]
 script = ExtResource( 2 )
 
-[node name="ArrowDirection" type="Sprite" parent="." index="4"]
+[node name="DisabledDirections" type="Node2D" parent="." index="0"]
+modulate = Color( 0, 0, 0, 0.509804 )
+
+[node name="ArrowDirection" parent="." index="7" instance=ExtResource( 4 )]
 rotation = 0.785398
-texture = ExtResource( 5 )
-offset = Vector2( 32, 0 )
 
-[node name="ArrowDirection2" type="Sprite" parent="." index="5"]
-modulate = Color( 0, 0, 0, 1 )
-rotation = 2.35619
-texture = ExtResource( 5 )
-offset = Vector2( 32, 0 )
-
-[node name="DirectionChanger" type="Area2D" parent="." index="6"]
+[node name="DirectionChanger" type="Area2D" parent="." index="8"]
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DirectionChanger" index="0"]
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="." index="7"]
+[node name="Sprite" type="Sprite" parent="." index="9"]
 modulate = Color( 0.156863, 0.0666667, 0.0862745, 1 )
 texture = ExtResource( 1 )
 
