@@ -23,24 +23,29 @@ current_target_color = 1
 
 [node name="ColorHoop" parent="." instance=ExtResource( 2 )]
 position = Vector2( 736, 480 )
+can_pick_up = false
 hoop_color = 1
 
 [node name="DirectionHoop" parent="." instance=ExtResource( 5 )]
 position = Vector2( 416, 96 )
+can_pick_up = false
 available_directions = [ 135, 45 ]
 
 [node name="DirectionHoop2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 544, 224 )
+can_pick_up = false
 available_directions = [ -180, 135 ]
 
 [node name="DirectionHoop3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 672, 480 )
 input_pickable = true
+can_pick_up = false
 available_directions = [ -45, 0 ]
 
 [node name="DirectionHoop4" parent="." instance=ExtResource( 5 )]
 position = Vector2( 288, 224 )
 input_pickable = true
+can_pick_up = false
 available_directions = [ -180, 135 ]
 
 [node name="Player" parent="." instance=ExtResource( 6 )]

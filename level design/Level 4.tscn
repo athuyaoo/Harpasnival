@@ -34,6 +34,7 @@ hoop_color = 1
 
 [node name="DirectionHoop" parent="." instance=ExtResource( 2 )]
 position = Vector2( 416, 288 )
+can_pick_up = true
 available_directions = [ 45, 0, -45 ]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
@@ -41,6 +42,7 @@ position = Vector2( 96, 224 )
 
 [node name="DirectionHoop2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 288, 160 )
+can_pick_up = true
 available_directions = [ -180, 0, -45 ]
 
 [node name="DuplicatorHoop" parent="." instance=ExtResource( 7 )]
