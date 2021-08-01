@@ -24,10 +24,12 @@ func set_hoop_color(color):
 
 
 func _on_BallDetector_area_entered(area):
-
 	var body = area.get_parent()
-	._on_BallDetector_area_entered(area)
 	var ball = (area.get_parent() as Ball)
-	if ball and can_detect_ball:
+	if not ball:
+		return
+	if can_detect_ball:
 		ball.set_color(hoop_color)
+	else:
+		ball.self_destruct()
 
