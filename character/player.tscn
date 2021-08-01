@@ -15,7 +15,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18, 26 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "idle"
 length = 5.0
 loop = true
@@ -32,7 +32,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 0, 0, 1, 0 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "in_air"
 length = 0.375
 loop = true
@@ -50,8 +50,7 @@ tracks/0/keys = {
 "values": [ 36, 37, 38 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "run"
+[sub_resource type="Animation" id=4]
 length = 1.1
 loop = true
 tracks/0/type = "value"
@@ -67,8 +66,7 @@ tracks/0/keys = {
 "values": [ 12, 23 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "throw"
+[sub_resource type="Animation" id=5]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Direction/Sprite:frame")
@@ -133,10 +131,18 @@ position = Vector2( 32, 0 )
 script = ExtResource( 8 )
 
 [node name="DetectHoop" type="RayCast2D" parent="Direction"]
-position = Vector2( 72, -56 )
+visible = false
+position = Vector2( 64, -56 )
 enabled = true
 cast_to = Vector2( 0, 160 )
 collision_mask = 8
+collide_with_areas = true
+
+[node name="DetectUnderneath" type="RayCast2D" parent="Direction"]
+position = Vector2( 64, 0 )
+enabled = true
+cast_to = Vector2( 0, 100 )
+collision_mask = 9
 collide_with_areas = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -166,10 +172,16 @@ script = ExtResource( 6 )
 stream = ExtResource( 10 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/idle = SubResource( 4 )
-anims/in_air = SubResource( 5 )
-anims/run = SubResource( 2 )
-anims/throw = SubResource( 3 )
+anims/idle = SubResource( 2 )
+anims/in_air = SubResource( 3 )
+anims/run = SubResource( 4 )
+anims/throw = SubResource( 5 )
 script = ExtResource( 7 )
 
 [node name="PlaceSound" type="AudioStreamPlayer" parent="."]
+
+[node name="OnGround" type="RayCast2D" parent="."]
+position = Vector2( 0, 16 )
+enabled = true
+cast_to = Vector2( 0, 32 )
+collision_mask = 9
