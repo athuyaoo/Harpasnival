@@ -27,7 +27,7 @@ func get_color(color_type):
 			return blue_ball_color
 		ColorType.RED:
 			return red_ball_color
-		ColorType.RED:
+		ColorType.PURPLE:
 			return purple_ball_color
 	return null
 
@@ -44,6 +44,7 @@ func set_active():
 	active = true
 
 func self_destruct():
+
 	is_self_destructing = true
 	emit_signal("self_destructed")
 	queue_free()
