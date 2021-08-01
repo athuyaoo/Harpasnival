@@ -28,12 +28,10 @@ func set_target_color(value):
 
 func set_destroyed(value: bool):
 	is_destroyed = value
-	monitoring = !value
-	visible = !value
-
+	visible = not value
 
 func _on_Target_body_entered(ball: Ball):
-	if not ball:
+	if not ball or is_destroyed:
 		return
 	if ball.current_color == current_target_color:
 		ball.self_destruct()
