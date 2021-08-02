@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://art assets/title screen.png" type="Texture" id=1]
 [ext_resource path="res://level/ui/play button.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://level/ui/back button.tscn" type="PackedScene" id=9]
 [ext_resource path="res://level/ui/level_select.gd" type="Script" id=10]
 [ext_resource path="res://level/ui/level button.tscn" type="PackedScene" id=11]
+[ext_resource path="res://music/wip 7.mp3" type="AudioStream" id=12]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 1, 1, 0.188235 )
@@ -282,13 +283,18 @@ Music used
 (Title screen) Currently untitled song by 
 Hagu-nyan's Cozy Corner
 (Main game) Off to Osaka by Kevin MacLeod
+Jazz in Paris by Media Rights Productions
 
 Tilemaps and Background
-Kenney Game Assets
-Fantasy Skybox FREE"
+Kenney Game Assets, Fantasy Skybox FREE"
 align = 1
 
 [node name="Tween" type="Tween" parent="CanvasLayer/MenuRoot"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -10.0
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/MenuRoot/Main Menu/VBoxContainer/HBoxContainer/Buttons/play button" to="CanvasLayer/MenuRoot" method="_on_play_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MenuRoot/Main Menu/VBoxContainer/HBoxContainer/Buttons/level select button" to="CanvasLayer/MenuRoot" method="_on_level_select_button_pressed"]

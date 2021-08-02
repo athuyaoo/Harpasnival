@@ -39,7 +39,7 @@ func _on_DirectionChanger_input_event(viewport, event:InputEvent, shape_idx):
 	if get_tree().get_nodes_in_group("balls").size() > 0:
 		return
 	if event is InputEventMouseButton and event.is_pressed():
-
+		$DirectionSound.play()
 		var new_index = (selected_direction_index + 1) % available_directions.size()
 		set_selected_direction_index(new_index)
 

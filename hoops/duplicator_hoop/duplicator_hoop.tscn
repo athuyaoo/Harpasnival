@@ -8,7 +8,7 @@
 [node name="DuplicatorHoop" instance=ExtResource( 3 )]
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="2"]
 visible = false
 
 [node name="FirstArrow" type="Sprite" parent="." index="4"]
@@ -27,8 +27,12 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="." index="6"]
-modulate = Color( 0.454902, 1, 0, 1 )
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Hoop Particles" parent="BallDetectArea/Hoop Particles" index="0"]
+color = Color( 0, 1, 0.772549, 1 )
+
+[editable path="BallDetectArea/Hoop Particles"]

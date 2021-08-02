@@ -30,6 +30,7 @@ func _on_BallDetector_area_entered(area):
 		return
 	if can_detect_ball:
 		ball.set_color(hoop_color)
+		$HoopSound.play()
 	else:
 		ball.self_destruct()
 

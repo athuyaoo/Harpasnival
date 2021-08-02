@@ -24,6 +24,7 @@ func check_win():
 
 func on_all_targets_destroyed():
 	completed = true
+	$LevelWinSound.play()
 	print("ALL TARGETS DESTROYED!")
 
 func on_ball_self_destructed():
@@ -32,5 +33,6 @@ func on_ball_self_destructed():
 	for ball in balls:
 		all_ball_destroyed = all_ball_destroyed and ball.is_self_destructing
 	if all_ball_destroyed and not completed:
+		$LevelFailSound.play()
 		for target in targets:
 			target.is_destroyed = false

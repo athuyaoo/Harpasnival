@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://hoops/color_hoop/color_hoop.tscn" type="PackedScene" id=1]
 [ext_resource path="res://character/player.tscn" type="PackedScene" id=2]
@@ -8,9 +8,22 @@
 [ext_resource path="res://level/assets/tileset.tres" type="TileSet" id=6]
 [ext_resource path="res://hoops/duplicator_hoop/duplicator_hoop.tscn" type="PackedScene" id=7]
 [ext_resource path="res://level/level.gd" type="Script" id=8]
+[ext_resource path="res://music/Game Music 2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://tilemaps/skyboxes/FS017_Sunset.tscn" type="PackedScene" id=10]
+[ext_resource path="res://level/assets/copy_collision.gd" type="Script" id=11]
+[ext_resource path="res://sfx/LevelFailSound.tscn" type="PackedScene" id=12]
+[ext_resource path="res://sfx/LevelWinSound.tscn" type="PackedScene" id=13]
 
 [node name="Level 10" type="Node2D"]
 script = ExtResource( 8 )
+
+[node name="FS017_Sunset" parent="." instance=ExtResource( 10 )]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 6 )
+format = 1
+tile_data = PoolIntArray( 0, 3, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0, 4, 3, 0, 5, 3, 0, 6, 3, 0, 7, 3, 0, 8, 3, 0, 9, 3, 0, 65536, 3, 0, 65540, 3, 0, 65541, 3, 0, 65542, 3, 0, 65543, 3, 0, 65544, 3, 0, 65545, 3, 0, 131072, 3, 0, 131076, 3, 0, 131077, 3, 0, 131078, 3, 0, 131079, 3, 0, 131080, 3, 0, 131081, 3, 0, 131082, 3, 0, 196608, 3, 0, 196612, 3, 0, 196618, 3, 0, 262144, 3, 0, 262148, 3, 0, 262154, 3, 0, 327680, 3, 0, 327690, 3, 0, 393216, 3, 0, 393217, 4, 0, 393218, 4, 0, 393219, 4, 0, 393220, 4, 0, 393221, 4, 0, 393222, 4, 0, 393223, 4, 0, 393224, 4, 0, 393225, 4, 0, 393226, 3, 0 )
+script = ExtResource( 11 )
 
 [node name="Target" parent="." instance=ExtResource( 3 )]
 position = Vector2( 608, 352 )
@@ -27,40 +40,30 @@ current_target_color = 1
 [node name="ColorHoop" parent="." instance=ExtResource( 1 )]
 position = Vector2( 544, 352 )
 input_pickable = true
-can_pick_up = false
 hoop_color = 1
 
 [node name="ColorHoop2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 480, 288 )
 input_pickable = true
-can_pick_up = false
 hoop_color = 1
 
 [node name="DuplicatorHoop" parent="." instance=ExtResource( 7 )]
 position = Vector2( 480, 352 )
 input_pickable = true
-can_pick_up = false
 second_direction = -45
 
 [node name="DuplicatorHoop2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 544, 288 )
 input_pickable = true
-can_pick_up = false
 second_direction = 45
 
 [node name="DirectionHoop" parent="." instance=ExtResource( 4 )]
 position = Vector2( 416, 352 )
 input_pickable = true
-can_pick_up = false
 available_directions = [ 45, 0, -45 ]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 352, 288 )
-
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 6 )
-format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 65536, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 131072, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 196608, 0, 0, 196612, 0, 0, 196618, 0, 0, 262144, 0, 0, 262148, 0, 0, 262154, 0, 0, 327680, 0, 0, 327690, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0 )
 
 [node name="Pedestal" parent="." instance=ExtResource( 5 )]
 position = Vector2( 352, 352 )
@@ -69,3 +72,9 @@ position = Vector2( 352, 352 )
 position = Vector2( 416, 224 )
 current = true
 zoom = Vector2( 0.8, 0.8 )
+
+[node name="Game Music 2" parent="." instance=ExtResource( 9 )]
+
+[node name="LevelFailSound" parent="." instance=ExtResource( 12 )]
+
+[node name="LevelWinSound" parent="." instance=ExtResource( 13 )]

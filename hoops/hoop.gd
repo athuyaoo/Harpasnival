@@ -7,6 +7,8 @@ export var can_pick_up = true setget set_can_pick_up
 var is_picked_up := false setget set_is_picked_up
 var can_detect_ball := false setget set_can_detect_ball
 
+const hoop_sound = preload("res://sfx/hoop_pass.wav")
+
 func is_anything_above():
 	$AboveCheck.force_raycast_update()
 	var collider = $AboveCheck.get_collider()
@@ -47,7 +49,7 @@ func set_is_picked_up(value):
 
 
 func set_can_pick_up(value):
-	yield(self, 'ready')
+	# yield(self, 'ready')
 	$PickupAura.visible = value
 	can_pick_up = value
 
@@ -68,6 +70,7 @@ func _on_BallDetector_area_entered(area):
 		return
 	if can_detect_ball:
 		ball.set_active()
+		$HoopSound.play()
 	else:
 		ball.self_destruct()
 

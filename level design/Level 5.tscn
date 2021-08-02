@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://targets/target.tscn" type="PackedScene" id=1]
 [ext_resource path="res://hoops/color_hoop/color_hoop.tscn" type="PackedScene" id=2]
@@ -7,9 +7,30 @@
 [ext_resource path="res://hoops/direction_hoop/direction_hoop.tscn" type="PackedScene" id=5]
 [ext_resource path="res://character/player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://level/assets/tileset.tres" type="TileSet" id=7]
+[ext_resource path="res://fonts/Delius/Delius-Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://music/Game Music 1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://tilemaps/skyboxes/FS003_Day_Sunless.tscn" type="PackedScene" id=10]
+[ext_resource path="res://level/assets/copy_collision.gd" type="Script" id=11]
+[ext_resource path="res://sfx/LevelFailSound.tscn" type="PackedScene" id=12]
+[ext_resource path="res://sfx/LevelWinSound.tscn" type="PackedScene" id=13]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 28
+font_data = ExtResource( 8 )
 
 [node name="Level 5" type="Node2D"]
 script = ExtResource( 3 )
+
+[node name="FS003_Day_Sunless" parent="." instance=ExtResource( 10 )]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 7 )
+format = 1
+tile_data = PoolIntArray( -65536, 5, 0, -65535, 5, 0, -65534, 5, 0, -65533, 5, 0, -65532, 5, 0, -65531, 5, 0, -65530, 5, 0, -65529, 5, 0, -65528, 5, 0, -65527, 5, 0, -65526, 5, 0, -65525, 5, 0, -65524, 5, 0, -65523, 5, 0, 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 7, 5, 0, 8, 5, 0, 9, 5, 0, 10, 5, 0, 11, 5, 0, 12, 5, 0, 13, 5, 0, 65536, 5, 0, 65549, 5, 0, 131072, 5, 0, 131074, 6, 0, 131075, 6, 0, 131077, 6, 0, 131078, 6, 0, 131081, 6, 0, 131084, 6, 0, 131085, 5, 0, 196608, 5, 0, 196621, 5, 0, 262144, 5, 0, 262145, 6, 0, 262147, 6, 0, 262148, 6, 0, 262150, 6, 0, 262151, 6, 0, 262153, 6, 0, 262154, 6, 0, 262157, 5, 0, 327680, 5, 0, 327693, 5, 0, 393216, 5, 0, 393217, 6, 0, 393218, 6, 0, 393219, 6, 0, 393220, 6, 0, 393221, 6, 0, 393222, 6, 0, 393223, 6, 0, 393224, 6, 0, 393225, 6, 0, 393226, 6, 0, 393227, 6, 0, 393228, 6, 0, 393229, 5, 0 )
+script = ExtResource( 11 )
 
 [node name="Target2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 800, 96 )
@@ -31,15 +52,29 @@ position = Vector2( 224, 352 )
 input_pickable = true
 available_directions = [ 0, -45 ]
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 7 )
-format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 65536, 0, 0, 65549, 0, 0, 131072, 0, 0, 131074, 0, 0, 131075, 0, 0, 131077, 0, 0, 131078, 0, 0, 131081, 0, 0, 131084, 0, 0, 131085, 0, 0, 196608, 0, 0, 196621, 0, 0, 262144, 0, 0, 262145, 0, 0, 262147, 0, 0, 262148, 0, 0, 262150, 0, 0, 262151, 0, 0, 262153, 0, 0, 262154, 0, 0, 262157, 0, 0, 327680, 0, 0, 327693, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0 )
-
 [node name="Pedestal" parent="." instance=ExtResource( 4 )]
 position = Vector2( 224, 224 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 480, 224 )
+position = Vector2( 485.045, 203.818 )
 current = true
 zoom = Vector2( 0.8, 0.8 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 66.4983
+margin_top = -41.4915
+margin_right = 828.498
+margin_bottom = 46.5085
+custom_styles/normal = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "You can only place hoops 1 block away. Also you cannot place or pick up hoops while in mid-air"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Game Music 1" parent="." instance=ExtResource( 9 )]
+
+[node name="LevelFailSound" parent="." instance=ExtResource( 12 )]
+
+[node name="LevelWinSound" parent="." instance=ExtResource( 13 )]
