@@ -48,5 +48,5 @@ func _on_BallDetector_area_entered(area):
 	._on_BallDetector_area_entered(area)
 	var ball = (area.get_parent() as Ball)
 	if ball and can_detect_ball:
-		ball.set_linear_velocity(200 * Vector2.RIGHT.rotated(
+		ball.new_velocity = (200 * Vector2.RIGHT.rotated(
 			deg2rad(available_directions[selected_direction_index])))

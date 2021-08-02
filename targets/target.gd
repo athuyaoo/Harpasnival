@@ -34,9 +34,9 @@ func _on_Target_body_entered(ball: Ball):
 	if not ball or is_destroyed:
 		return
 	if ball.current_color == current_target_color:
-		ball.self_destruct()
 		set_destroyed(true)
 		emit_signal("target_destroyed")
+	ball.self_destruct()
 
 
 func _process(_delta):

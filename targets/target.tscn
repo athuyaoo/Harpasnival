@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://targets/target.gd" type="Script" id=1]
 [ext_resource path="res://targets/red_target.png" type="Texture" id=2]
@@ -8,10 +8,15 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 32 )
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 32 )
+
 [node name="Target" type="Area2D" groups=[
 "targets",
 ]]
 position = Vector2( -32, -32 )
+monitorable = false
+collision_layer = 0
 collision_mask = 2
 script = ExtResource( 1 )
 blue_target = ExtResource( 4 )
@@ -23,5 +28,12 @@ texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="PickableArea" type="Area2D" parent="."]
+monitoring = false
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickableArea"]
+shape = SubResource( 2 )
 
 [connection signal="body_entered" from="." to="." method="_on_Target_body_entered"]

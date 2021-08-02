@@ -12,9 +12,18 @@ var start_position: Vector2
 var active = true
 var current_color
 var is_self_destructing = false
+var new_velocity = null
+
 
 const Level := preload("res://level/level.gd")
 
+
+func _integrate_forces(state: Physics2DDirectBodyState) -> void:
+	if new_velocity:
+		if new_velocity != state.linear_velocity:
+			state.linear_velocity = new_velocity
+			state.transform.origin.y = Utils.set_position_to_tile_map(state.transform.origin).y
+		new_velocity = null
 
 func set_start_position( player_position: Vector2):
 	active = false

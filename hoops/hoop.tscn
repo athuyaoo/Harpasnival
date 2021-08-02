@@ -64,7 +64,6 @@ polygon = PoolVector2Array( -32, -64, -32, 32, 32, 32, 32, -64 )
 position = Vector2( 0, 24 )
 cast_to = Vector2( 0, 32 )
 collision_mask = 9
-collide_with_areas = true
 __meta__ = {
 "_edit_lock_": true
 }

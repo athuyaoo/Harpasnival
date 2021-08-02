@@ -20,7 +20,16 @@ var velocity = Vector2.ZERO
 var held_item : Hoop
 onready var scene_tree = get_tree()
 
+var draw_circle_pos = Vector2.ZERO
+
 var collision_point_g: Vector2
+
+func _draw() -> void:
+	draw_circle(draw_circle_pos, 20, Color.black)
+
+func update_circle(global_pos:Vector2):
+	draw_circle_pos = to_local(global_pos)
+	update()
 
 func can_throw():
 	return scene_tree.get_nodes_in_group("balls").size() == 0
@@ -92,14 +101,8 @@ func update_held_item_position():
 	if (!held_item):
 		return
 
-	var underneath_point = detect_underneath.get_collision_point()
-	var underneath_collider = detect_underneath.get_collider()
-	var underneath_tilemap_pos = Utils.set_position_to_tile_map(underneath_point)
-	
 	var collision_point = detect_hoop_raycast.get_collision_point()
 	var collider = detect_hoop_raycast.get_collider()
-	
-
 	var colliding_structure_tilemap_pos = Utils.set_position_to_tile_map(collision_point)
 	var detect_hoop_tilemap_pos = Utils.set_position_to_tile_map(detect_hoop_raycast.global_position)
 
@@ -112,27 +115,40 @@ func update_held_item_position():
 
 	is_raycast_in_structure =  is_raycast_in_structure or \
 		colliding_structure_tilemap_pos == detect_hoop_tilemap_pos
+		
+		
+	var underneath_point = detect_underneath.get_collision_point()
+	var underneath_collider = detect_underneath.get_collider()
+	var underneath_tilemap_pos = Utils.set_position_to_tile_map(underneath_point)
+	var under_hoop_tilemap_pos = Utils.set_position_to_tile_map(detect_underneath.global_position)
 
-	var underneath_can_place = (underneath_collider != null) and not (underneath_collider is Area2D)
+	var is_undercast_in_structure = false
 
+	if (underneath_collider is TileMap):
+		var tilemap := underneath_collider as TileMap
+		var tilemap_cell = tilemap.get_cellv(tilemap.world_to_map(detect_underneath.global_position))
+		is_undercast_in_structure = tilemap_cell != TileMap.INVALID_CELL
+
+	is_undercast_in_structure =  is_undercast_in_structure or \
+		underneath_tilemap_pos == under_hoop_tilemap_pos
+	var underneath_cannot_place = (underneath_collider == null) or\
+		(underneath_collider is Area2D) or\
+		is_undercast_in_structure
 	var cannot_place = (collider == null) or\
 		is_raycast_in_structure or\
 		(collider is Area2D)
 
-
-	if cannot_place:
-		if underneath_can_place:
-			if $OnGround.get_collider() != null:
-				print("underneath_can_place")
-				held_item.global_position = underneath_tilemap_pos + Vector2.UP * 64
-				return
-		if $OnGround.get_collider() == null:
-			held_item.global_position = Utils.set_position_to_tile_map(
-				placed_position.global_position) - Vector2.RIGHT * $Direction.scale.x *64
+	if cannot_place or $OnGround.get_collider() == null:
+		if underneath_cannot_place:
+			if $OnGround.get_collider() == null:
+				held_item.global_position = Utils.set_position_to_tile_map(
+					placed_position.global_position) - Vector2.RIGHT * $Direction.scale.x *64
+			else:
+				held_item.global_position = Utils.set_position_to_tile_map(placed_position.global_position)
 		else:
-			held_item.global_position = Utils.set_position_to_tile_map(placed_position.global_position)
+			if $OnGround.get_collider() != null:
+				held_item.global_position = underneath_tilemap_pos + Vector2.UP * 64
 	else:
-		print("can_place")
 		held_item.global_position = colliding_structure_tilemap_pos + Vector2.UP * 64
 
 func is_holding_item():
