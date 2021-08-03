@@ -16,7 +16,6 @@ extents = Vector2( 32, 32 )
 ]]
 position = Vector2( -32, -32 )
 monitorable = false
-collision_layer = 0
 collision_mask = 2
 script = ExtResource( 1 )
 blue_target = ExtResource( 4 )

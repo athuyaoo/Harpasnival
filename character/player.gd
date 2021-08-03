@@ -20,19 +20,11 @@ var velocity = Vector2.ZERO
 var held_item : Hoop
 onready var scene_tree = get_tree()
 
-var draw_circle_pos = Vector2.ZERO
-
 var collision_point_g: Vector2
 
-func _draw() -> void:
-	draw_circle(draw_circle_pos, 20, Color.black)
-
-func update_circle(global_pos:Vector2):
-	draw_circle_pos = to_local(global_pos)
-	update()
 
 func can_throw():
-	return scene_tree.get_nodes_in_group("balls").size() == 0
+	return scene_tree.get_nodes_in_group("balls").size() == 0 && not is_holding_item()
 
 # Throwing mechanic
 func throw():

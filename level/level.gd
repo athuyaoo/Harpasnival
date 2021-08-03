@@ -11,8 +11,6 @@ func _ready() -> void:
 	for target in targets:
 		target.connect("target_destroyed", self, "check_win")
 
-
-
 func check_win():
 	var all_targets_destroyed = true
 	for target in targets:
@@ -26,6 +24,8 @@ func on_all_targets_destroyed():
 	completed = true
 	$LevelWinSound.play()
 	print("ALL TARGETS DESTROYED!")
+	yield($LevelWinSound, "finished")
+	$LevelWinSound.stop()
 
 func on_ball_self_destructed():
 	var balls = get_tree().get_nodes_in_group("balls")
