@@ -36,3 +36,7 @@ func on_ball_self_destructed():
 		$LevelFailSound.play()
 		for target in targets:
 			target.is_destroyed = false
+
+func _input(event):
+	if event.is_action_pressed("restart"):
+		get_tree().reload_current_scene()
