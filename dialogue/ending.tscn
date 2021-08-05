@@ -37,7 +37,7 @@ __meta__ = {
 }
 
 [node name="Clown" type="Sprite" parent="Control"]
-position = Vector2( 306.715, -199.952 )
+position = Vector2( 344.133, -198.17 )
 texture = ExtResource( 6 )
 
 [node name="Ball1" type="Sprite" parent="Control"]
