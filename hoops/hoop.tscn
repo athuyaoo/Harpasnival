@@ -97,7 +97,6 @@ polygon = PoolVector2Array( -32, -64, -32, 32, 32, 32, 32, -64 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="PickupAura"]
 frames = SubResource( 6 )
-frame = 3
 playing = true
 
 [node name="HoopSound" type="AudioStreamPlayer" parent="."]
