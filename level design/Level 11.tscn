@@ -8,7 +8,7 @@
 [ext_resource path="res://level/assets/tileset.tres" type="TileSet" id=6]
 [ext_resource path="res://hoops/duplicator_hoop/duplicator_hoop.tscn" type="PackedScene" id=7]
 [ext_resource path="res://level/level.gd" type="Script" id=8]
-[ext_resource path="res://music/Game Music 1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://music/Game Music 2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://tilemaps/skyboxes/FS017_Sunset.tscn" type="PackedScene" id=10]
 [ext_resource path="res://level/assets/copy_collision.gd" type="Script" id=11]
 [ext_resource path="res://sfx/LevelFailSound.tscn" type="PackedScene" id=12]
@@ -22,66 +22,58 @@ script = ExtResource( 8 )
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 6 )
 format = 1
-tile_data = PoolIntArray( 0, 3, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0, 4, 3, 0, 5, 3, 0, 6, 3, 0, 7, 3, 0, 8, 3, 0, 9, 3, 0, 10, 3, 0, 65536, 3, 0, 65546, 3, 0, 131072, 3, 0, 131082, 3, 0, 131083, 3, 0, 131084, 3, 0, 131085, 3, 0, 131086, 3, 0, 131087, 3, 0, 131088, 3, 0, 196608, 3, 0, 196624, 3, 0, 262144, 3, 0, 262147, 4, 0, 262148, 4, 0, 262150, 4, 0, 262152, 4, 0, 262154, 4, 0, 262156, 4, 0, 262157, 4, 0, 262158, 4, 0, 262159, 4, 0, 262160, 3, 0, 327680, 3, 0, 327696, 3, 0, 393216, 3, 0, 393217, 4, 0, 393218, 4, 0, 393219, 4, 0, 393220, 4, 0, 393221, 4, 0, 393222, 4, 0, 393224, 4, 0, 393232, 3, 0, 458756, 3, 0, 458768, 3, 0, 524292, 3, 0, 524293, 4, 0, 524294, 4, 0, 524295, 4, 0, 524296, 4, 0, 524297, 4, 0, 524298, 4, 0, 524299, 4, 0, 524300, 4, 0, 524301, 4, 0, 524302, 4, 0, 524303, 4, 0, 524304, 3, 0 )
+tile_data = PoolIntArray( 0, 3, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0, 4, 3, 0, 5, 3, 0, 6, 3, 0, 7, 3, 0, 8, 3, 0, 9, 3, 0, 65536, 3, 0, 65540, 3, 0, 65541, 3, 0, 65542, 3, 0, 65543, 3, 0, 65544, 3, 0, 65545, 3, 0, 131072, 3, 0, 131076, 3, 0, 131077, 3, 0, 131078, 3, 0, 131079, 3, 0, 131080, 3, 0, 131081, 3, 0, 131082, 3, 0, 196608, 3, 0, 196612, 3, 0, 196618, 3, 0, 262144, 3, 0, 262148, 3, 0, 262154, 3, 0, 327680, 3, 0, 327690, 3, 0, 393216, 3, 0, 393217, 4, 0, 393218, 4, 0, 393219, 4, 0, 393220, 4, 0, 393221, 4, 0, 393222, 4, 0, 393223, 4, 0, 393224, 4, 0, 393225, 4, 0, 393226, 3, 0 )
 script = ExtResource( 11 )
 
 [node name="Target" parent="." instance=ExtResource( 3 )]
-position = Vector2( 992, 224 )
+position = Vector2( 608, 352 )
+current_target_color = 1
 
 [node name="Target2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 928, 224 )
-current_target_color = 2
+position = Vector2( 608, 288 )
+current_target_color = 1
 
 [node name="Target3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 864, 224 )
+position = Vector2( 608, 224 )
+current_target_color = 1
 
 [node name="ColorHoop" parent="." instance=ExtResource( 1 )]
-position = Vector2( 352, 480 )
+position = Vector2( 544, 352 )
 input_pickable = true
-hoop_color = 2
+hoop_color = 1
 
 [node name="ColorHoop2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 544, 224 )
+position = Vector2( 480, 288 )
 input_pickable = true
+hoop_color = 1
 
 [node name="DuplicatorHoop" parent="." instance=ExtResource( 7 )]
-position = Vector2( 416, 224 )
+position = Vector2( 480, 352 )
+input_pickable = true
+second_direction = -45
+
+[node name="DuplicatorHoop2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 544, 288 )
 input_pickable = true
 second_direction = 45
 
-[node name="DuplicatorHoop2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 416, 352 )
-input_pickable = true
-first_direction = -135
-second_direction = 0
-
 [node name="DirectionHoop" parent="." instance=ExtResource( 4 )]
-position = Vector2( 544, 352 )
-input_pickable = true
-available_directions = [ 135, -180, -135 ]
-
-[node name="DirectionHoop2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 672, 480 )
-input_pickable = true
-available_directions = [ 45, 0, -45 ]
-
-[node name="DirectionHoop3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 288, 224 )
+position = Vector2( 416, 352 )
 input_pickable = true
 available_directions = [ 45, 0, -45 ]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 96, 352 )
+position = Vector2( 352, 288 )
 
 [node name="Pedestal" parent="." instance=ExtResource( 5 )]
-position = Vector2( 224, 224 )
+position = Vector2( 352, 352 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 544, 288 )
+position = Vector2( 416, 224 )
 current = true
-zoom = Vector2( 0.9, 0.9 )
+zoom = Vector2( 0.8, 0.8 )
 
-[node name="Game Music 1" parent="." instance=ExtResource( 9 )]
+[node name="Game Music 2" parent="." instance=ExtResource( 9 )]
 
 [node name="LevelFailSound" parent="." instance=ExtResource( 12 )]
 

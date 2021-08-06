@@ -16,7 +16,7 @@ var new_velocity = null
 
 
 const Level := preload("res://level/level.gd")
-
+const smoke_vfx := preload("res://vfx/Ball Smoke.tscn")
 
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	if new_velocity:
@@ -53,10 +53,16 @@ func set_active():
 	active = true
 
 func self_destruct():
-
+	spawn_smoke_vfx()
 	is_self_destructing = true
 	emit_signal("self_destructed")
 	queue_free()
+	
+func spawn_smoke_vfx():
+	var particleEffect = smoke_vfx.instance()
+	particleEffect.get_node("CPUParticles2D").set_emitting(true)
+	particleEffect.set_position(get_position())
+	get_tree().get_root().add_child(particleEffect)
 
 func _physics_process(delta):
 	if active:
