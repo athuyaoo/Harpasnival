@@ -6,7 +6,10 @@ var completed = false
 var is_muted = false
 const main_menu_path = "res://level/main menu.tscn"
 
+
 func _ready() -> void:
+	if Engine.editor_hint:
+		return
 	var hoops = get_tree().get_nodes_in_group("hoops")
 	for hoop in hoops:
 		$Pedestal.connect("activation_changed", hoop, "_on_Pedestal_activation_changed")
@@ -24,9 +27,10 @@ func check_win():
 
 func on_all_targets_destroyed():
 	completed = true
-	$GameUI.level_completed()
 	$LevelWinSound.play()
 	print("ALL TARGETS DESTROYED!")
+	yield(get_tree().create_timer(2), "timeout")
+	$GameUI.level_completed()
 	yield($LevelWinSound, "finished")
 	$LevelWinSound.stop()
 
@@ -62,3 +66,7 @@ func _input(event):
 
 func _on_NextLevelButton_pressed() -> void:
 	SceneChanger.change_scene(next_level_scene)
+
+
+func _on_MenuButton_pressed() -> void:
+	SceneChanger.change_scene(load(main_menu_path))
