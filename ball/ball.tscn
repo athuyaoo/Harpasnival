@@ -15,7 +15,7 @@ resource_name = "bouncing"
 length = 0.8
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Position/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -27,7 +27,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Face:frame")
+tracks/1/path = NodePath("Position/Face:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -53,18 +53,20 @@ blue_ball_color = Color( 0, 0, 0.756863, 1 )
 red_ball_color = Color( 0.843137, 0.101961, 0.101961, 1 )
 purple_ball_color = Color( 0.792157, 0.415686, 0.94902, 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Position" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Position"]
 texture = ExtResource( 1 )
+hframes = 4
+frame = 2
+
+[node name="Face" type="Sprite" parent="Position"]
+texture = ExtResource( 3 )
 hframes = 4
 frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
-
-[node name="Face" type="Sprite" parent="."]
-texture = ExtResource( 3 )
-hframes = 4
-frame = 2
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2

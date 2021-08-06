@@ -40,8 +40,6 @@ func get_color(color_type):
 			return purple_ball_color
 	return null
 
-
-
 func _ready() -> void:
 	var level = get_parent() as Level
 	if level == null:
@@ -65,6 +63,8 @@ func spawn_smoke_vfx():
 	get_tree().get_root().add_child(particleEffect)
 
 func _physics_process(delta):
+	$Position.scale.x = sign(linear_velocity.x)
+	$Position.rotation = rad2deg((Vector2.RIGHT * sign(linear_velocity.x)).angle_to(linear_velocity))
 	if active:
 		return
 	if abs(global_position.x - start_position.x) > (64 * 3 + 5):
@@ -74,7 +74,7 @@ func _physics_process(delta):
 func set_color(color):
 	if (color == null or get_color(color) == null):
 		return
-	$Sprite.modulate = get_color(color)
+	$Position/Sprite.modulate = get_color(color)
 	current_color = color
 
 func _on_Ball_body_entered(body):
