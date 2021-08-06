@@ -1,12 +1,37 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://hoops/hoop.gd" type="Script" id=1]
 [ext_resource path="res://hoops/ball_detector.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sfx/hoop_pass_2.mp3" type="AudioStream" id=3]
 [ext_resource path="res://vfx/Hoop Particles.tscn" type="PackedScene" id=4]
+[ext_resource path="res://art assets/handpicking.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 5 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 5 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 5 )
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="Hoop" type="KinematicBody2D" groups=[
 "hoops",
@@ -38,15 +63,6 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="PickupAura" type="Node2D" parent="."]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Polygon2D" type="Polygon2D" parent="PickupAura"]
-color = Color( 0, 0.101961, 0.984314, 0.364706 )
-polygon = PoolVector2Array( -32, -64, -32, 32, 32, 32, 32, -64 )
-
 [node name="BallDetectArea" type="Node2D" parent="."]
 visible = false
 __meta__ = {
@@ -67,6 +83,21 @@ collision_mask = 9
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="PickupAura" type="Node2D" parent="."]
+position = Vector2( 0, -15 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="PickupAura"]
+visible = false
+color = Color( 0, 0.101961, 0.984314, 0.364706 )
+polygon = PoolVector2Array( -32, -64, -32, 32, 32, 32, 32, -64 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="PickupAura"]
+frames = SubResource( 6 )
+playing = true
 
 [node name="HoopSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )

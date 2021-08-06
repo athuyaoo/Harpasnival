@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Dinotorial WIP v3 No Piano.mp3-c6a168f68351c56ddde5911a23f71a8c.mp3str"
+
+[deps]
+
+source_file="res://music/Dinotorial WIP v3 No Piano.mp3"
+dest_files=[ "res://.import/Dinotorial WIP v3 No Piano.mp3-c6a168f68351c56ddde5911a23f71a8c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
