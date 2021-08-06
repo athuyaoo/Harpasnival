@@ -3,6 +3,7 @@
 [ext_resource path="res://music/Media-Right-Productions-Jazz-In-Paris.mp3" type="AudioStream" id=1]
 
 [node name="Game Music 2" type="AudioStreamPlayer"]
+pause_mode = 2
 stream = ExtResource( 1 )
 volume_db = -10.0
 autoplay = true
