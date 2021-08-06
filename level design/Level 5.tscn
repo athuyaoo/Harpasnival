@@ -25,6 +25,7 @@ font_data = ExtResource( 8 )
 script = ExtResource( 3 )
 
 [node name="FS003_Day_Sunless" parent="." instance=ExtResource( 10 )]
+position = Vector2( 640, 351.109 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 7 )

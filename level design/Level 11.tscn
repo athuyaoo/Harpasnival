@@ -18,6 +18,7 @@
 script = ExtResource( 8 )
 
 [node name="FS017_Sunset" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1260.84, 552.652 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 6 )

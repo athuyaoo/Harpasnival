@@ -17,6 +17,7 @@
 script = ExtResource( 8 )
 
 [node name="FS003_Day_Sunless" parent="." instance=ExtResource( 9 )]
+position = Vector2( 641.059, 352 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 7 )
