@@ -1,6 +1,6 @@
 extends Node2D
 
-export var next_scene : PackedScene = null
+export var next_level_scene : PackedScene = null
 onready var targets = get_tree().get_nodes_in_group("targets")
 var completed = false
 var is_muted = false
@@ -24,6 +24,7 @@ func check_win():
 
 func on_all_targets_destroyed():
 	completed = true
+	$GameUI.level_completed()
 	$LevelWinSound.play()
 	print("ALL TARGETS DESTROYED!")
 	yield($LevelWinSound, "finished")
@@ -58,3 +59,6 @@ func _input(event):
 		toggle_mute()
 	elif event.is_action_pressed("quit"):
 		return_to_main_menu()
+
+func _on_NextLevelButton_pressed() -> void:
+	SceneChanger.change_scene(next_level_scene)
