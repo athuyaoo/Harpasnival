@@ -21,7 +21,7 @@ bg_color = Color( 1, 1, 0, 0.223529 )
 
 [sub_resource type="StyleBoxEmpty" id=5]
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=6]
 size = 60
 outline_size = 5
 outline_color = Color( 0, 0, 0, 1 )
@@ -126,7 +126,7 @@ custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
@@ -143,7 +143,7 @@ custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
@@ -160,7 +160,7 @@ custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
@@ -223,40 +223,38 @@ __meta__ = {
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MenuRoot/Level Menu/VBoxContainer"]
-margin_left = 78.0
-margin_top = 442.0
-margin_right = 348.0
+margin_top = 468.0
+margin_right = 1024.0
 margin_bottom = 576.0
+custom_constants/margin_right = 603
 custom_constants/margin_top = 3
-custom_constants/margin_left = 81
+custom_constants/margin_left = 162
 custom_constants/margin_bottom = 22
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackButton2" type="Button" parent="CanvasLayer/MenuRoot/Level Menu/VBoxContainer/MarginContainer"]
-margin_left = 81.0
+[node name="BackButton" type="Button" parent="CanvasLayer/MenuRoot/Level Menu/VBoxContainer/MarginContainer"]
+margin_left = 162.0
 margin_top = 3.0
-margin_right = 270.0
-margin_bottom = 112.0
+margin_right = 421.0
+margin_bottom = 86.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 text = "Back"
-align = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Credit Menu" type="MarginContainer" parent="CanvasLayer/MenuRoot"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1056.0
@@ -311,18 +309,17 @@ align = 1
 valign = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer"]
-margin_left = 45.0
 margin_top = 201.0
-margin_right = 973.0
-margin_bottom = 550.0
+margin_right = 1024.0
+margin_bottom = 539.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer/HBoxContainer"]
-margin_right = 462.0
-margin_bottom = 349.0
+margin_right = 510.0
+margin_bottom = 338.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_right = 462.0
+margin_right = 510.0
 margin_bottom = 245.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -339,19 +336,19 @@ align = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 249.0
-margin_right = 462.0
+margin_right = 510.0
 margin_bottom = 332.0
 
 [node name="BackButton" type="Button" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer/HBoxContainer/VBoxContainer/CenterContainer"]
-margin_left = 154.0
-margin_right = 307.0
+margin_left = 178.0
+margin_right = 331.0
 margin_bottom = 83.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
@@ -360,9 +357,9 @@ text = "Back"
 align = 0
 
 [node name="Label2" type="Label" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer/HBoxContainer"]
-margin_left = 466.0
-margin_right = 928.0
-margin_bottom = 349.0
+margin_left = 514.0
+margin_right = 1024.0
+margin_bottom = 338.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 9 )
@@ -386,7 +383,8 @@ stream = ExtResource( 12 )
 volume_db = -10.0
 autoplay = true
 
+[connection signal="pressed" from="CanvasLayer/MenuRoot/Main Menu/VBoxContainer/MarginContainer2/Buttons/PlayButton" to="CanvasLayer/MenuRoot" method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/MenuRoot/Main Menu/VBoxContainer/MarginContainer2/Buttons/LevelSelectButton" to="CanvasLayer/MenuRoot" method="_on_LevelSelectButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/MenuRoot/Main Menu/VBoxContainer/MarginContainer2/Buttons/CreditsButton" to="CanvasLayer/MenuRoot" method="_on_CreditsButton_pressed"]
-[connection signal="pressed" from="CanvasLayer/MenuRoot/Level Menu/VBoxContainer/MarginContainer/BackButton2" to="CanvasLayer/MenuRoot" method="_on_BackButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/MenuRoot/Level Menu/VBoxContainer/MarginContainer/BackButton" to="CanvasLayer/MenuRoot" method="_on_BackButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer/HBoxContainer/VBoxContainer/CenterContainer/BackButton" to="CanvasLayer/MenuRoot" method="_on_BackButton_pressed"]
