@@ -4,9 +4,9 @@ extends Node
 
 var dialogue = [
 	"That's the last one of them! We've won, Maru-kun!",
-	"Good job, Clown-chan! You've destroyed all the PILLARS OF SOCIETY! Now that we've brought the CARNIVAL to the people, we gamers are free to roam! Never again shall GAMERS be OPPRESSED!",
-	"Oh no, it appears that my efforts to rid my local communities of oppression have only replaced the old guard with a new tyrannical class of gamers. The only way I can live with this guilt is by sharing the blame with this ball.",
-	"All of my INTERACTIONS with you have merely been the REFLECTION of your own MISPLACED RESENTMENT. I am henceforth INANIMATE, as I should always have been.",
+	"Good job, Clown-chan! You've destroyed all the PILLARS OF SOCIETY!\nNow that we've brought the CARNIVAL to the people, we gamers are free to roam!\nNever again shall GAMERS be OPPRESSED!",
+	"Oh no, it appears that my efforts to rid my local communities of oppression have only replaced the old guard with a new tyrannical class of gamers.\n\nThe only way I can live with this guilt is by sharing the blame with this ball.",
+	"All of my INTERACTIONS with you have merely been the REFLECTION of your own MISPLACED RESENTMENT.\n\nI am henceforth INANIMATE, as I should always have been.",
 	"Oh, dear me."
 ]
 
