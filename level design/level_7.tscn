@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://level design/template_level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://hoops/color_hoop/color_hoop.tscn" type="PackedScene" id=2]
@@ -6,9 +6,10 @@
 [ext_resource path="res://hoops/direction_hoop/direction_hoop.tscn" type="PackedScene" id=4]
 [ext_resource path="res://targets/target.tscn" type="PackedScene" id=5]
 [ext_resource path="res://character/player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://music/Game Music 2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://music/Game Music 1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://level/assets/copy_collision.gd" type="Script" id=8]
 [ext_resource path="res://level design/level_8.tscn" type="PackedScene" id=9]
+[ext_resource path="res://fonts/Delius/Delius-Regular.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://level/assets/tile.png" type="Texture" id=16]
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/planetCenter.png" type="Texture" id=17]
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/planetMid.png" type="Texture" id=18]
@@ -613,6 +614,13 @@ resource_local_to_scene = true
 } ]
 10/z_index = 0
 
+[sub_resource type="StyleBoxFlat" id=54]
+bg_color = Color( 0.12549, 0.12549, 0.160784, 1 )
+
+[sub_resource type="DynamicFont" id=55]
+size = 28
+font_data = ExtResource( 10 )
+
 [node name="Level7" instance=ExtResource( 1 )]
 next_level_scene = ExtResource( 9 )
 
@@ -623,7 +631,7 @@ position = Vector2( 640, 356 )
 tile_set = SubResource( 53 )
 show_collision = true
 format = 1
-tile_data = PoolIntArray( 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 7, 5, 0, 8, 5, 0, 9, 5, 0, 10, 5, 0, 11, 5, 0, 12, 5, 0, 13, 5, 0, 14, 5, 0, 15, 5, 0, 16, 5, 0, 65537, 5, 0, 65549, 5, 0, 65550, 5, 0, 65551, 5, 0, 65552, 5, 0, 131073, 5, 0, 131075, 6, 0, 131076, 6, 0, 131077, 5, 0, 131080, 5, 0, 131081, 5, 0, 131082, 5, 0, 131088, 5, 0, 196609, 5, 0, 196621, 5, 0, 196622, 5, 0, 196623, 5, 0, 196624, 5, 0, 262145, 5, 0, 262146, 5, 0, 262147, 5, 0, 262148, 5, 0, 262149, 5, 0, 262150, 5, 0, 262151, 5, 0, 262152, 5, 0, 262153, 5, 0, 262154, 5, 0, 262155, 5, 0, 262156, 5, 0, 262157, 5, 0, 262158, 5, 0, 262159, 5, 0, 262160, 5, 0 )
+tile_data = PoolIntArray( 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 7, 5, 0, 8, 5, 0, 9, 5, 0, 10, 5, 0, 11, 5, 0, 12, 5, 0, 13, 5, 0, 14, 5, 0, 15, 5, 0, 16, 5, 0, 65537, 5, 0, 65549, 5, 0, 65550, 5, 0, 65551, 5, 0, 65552, 5, 0, 131073, 5, 0, 131075, 6, 0, 131076, 6, 0, 131077, 5, 0, 131080, 5, 0, 131081, 5, 0, 131082, 5, 0, 131088, 5, 0, 196609, 5, 0, 196621, 5, 0, 196622, 5, 0, 196623, 5, 0, 196624, 5, 0, 262145, 5, 0, 262146, 5, 0, 262147, 5, 0, 262148, 5, 0, 262149, 5, 0, 262150, 5, 0, 262151, 5, 0, 262152, 5, 0, 262153, 5, 0, 262154, 5, 0, 262155, 5, 0, 262156, 5, 0, 262157, 5, 0, 262158, 5, 0, 262159, 5, 0, 262160, 5, 0, 327681, 5, 0, 327682, 5, 0, 327683, 5, 0, 327684, 5, 0, 327685, 5, 0, 327686, 5, 0, 327687, 5, 0, 327688, 5, 0, 327689, 5, 0, 327690, 5, 0, 327691, 5, 0, 327692, 5, 0, 327693, 5, 0, 327694, 5, 0, 327695, 5, 0, 327696, 5, 0 )
 script = ExtResource( 8 )
 
 [node name="Target2" parent="." index="5" instance=ExtResource( 5 )]
@@ -658,10 +666,23 @@ available_directions = [ -45, 0 ]
 [node name="Pedestal" parent="." index="12" instance=ExtResource( 3 )]
 position = Vector2( 224, 96 )
 
-[node name="Game Music 2" parent="." index="13" instance=ExtResource( 7 )]
-
-[node name="Camera2D" type="Camera2D" parent="." index="14"]
-position = Vector2( 576, 132 )
+[node name="Camera2D" type="Camera2D" parent="." index="13"]
+position = Vector2( 576, 159.283 )
 current = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." index="14"]
+margin_left = 163.0
+margin_top = 277.0
+margin_right = 984.0
+margin_bottom = 365.0
+custom_styles/normal = SubResource( 54 )
+custom_fonts/normal_font = SubResource( 55 )
+custom_colors/default_color = Color( 0.760784, 0.933333, 1, 1 )
+text = "Need a hint? Refer to the next level! Also, read the instructions for level 1 VERY carefully."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Game Music 1" parent="." index="15" instance=ExtResource( 7 )]
 
 [editable path="GameUI"]

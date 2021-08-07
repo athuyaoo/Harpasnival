@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://level design/template_level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://fonts/Delius/Delius-Regular.ttf" type="DynamicFontData" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://character/player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://level design/level_6.tscn" type="PackedScene" id=8]
 [ext_resource path="res://level/assets/copy_collision.gd" type="Script" id=9]
+[ext_resource path="res://music/Game Music 1.tscn" type="PackedScene" id=10]
 [ext_resource path="res://level/assets/tile.png" type="Texture" id=17]
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/planetCenter.png" type="Texture" id=18]
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/planetMid.png" type="Texture" id=19]
@@ -614,7 +615,7 @@ resource_local_to_scene = true
 10/z_index = 0
 
 [sub_resource type="StyleBoxFlat" id=54]
-bg_color = Color( 1, 1, 1, 1 )
+bg_color = Color( 0.12549, 0.12549, 0.160784, 1 )
 
 [sub_resource type="DynamicFont" id=55]
 size = 28
@@ -666,10 +667,12 @@ margin_right = 828.498
 margin_bottom = 46.5085
 custom_styles/normal = SubResource( 54 )
 custom_fonts/normal_font = SubResource( 55 )
-custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/default_color = Color( 0.760784, 0.933333, 1, 1 )
 text = "You can only place hoops 1 block away. Also you cannot place or pick up hoops while in mid-air"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Game Music 1" parent="." index="13" instance=ExtResource( 10 )]
 
 [editable path="GameUI"]

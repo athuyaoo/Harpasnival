@@ -17,7 +17,7 @@ func generate_buttons(name: int):
 	var bb = base_button.instance()
 	bb.set_name(str(name))
 	bb.set_text(str(name))
-	bb.level_path = "res://level design/Level " + str(name) + ".tscn"
+	bb.level_path = "res://level design/level_" + str(name) + ".tscn"
 	grid.add_child(bb)
 	
 func column_size():

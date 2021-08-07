@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=2]
+[gd_scene load_steps=76 format=2]
 
 [ext_resource path="res://level design/template_level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://hoops/color_hoop/color_hoop.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://character/player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://level design/level_7.tscn" type="PackedScene" id=7]
 [ext_resource path="res://level/assets/copy_collision.gd" type="Script" id=8]
+[ext_resource path="res://music/Game Music 2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://fonts/Delius/Delius-Regular.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://level/assets/tile.png" type="Texture" id=17]
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/planetCenter.png" type="Texture" id=18]
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/planetMid.png" type="Texture" id=19]
@@ -613,6 +615,13 @@ resource_local_to_scene = true
 } ]
 10/z_index = 0
 
+[sub_resource type="StyleBoxFlat" id=54]
+bg_color = Color( 0.12549, 0.12549, 0.160784, 1 )
+
+[sub_resource type="DynamicFont" id=55]
+size = 28
+font_data = ExtResource( 10 )
+
 [node name="Level6" instance=ExtResource( 1 )]
 next_level_scene = ExtResource( 7 )
 
@@ -623,7 +632,7 @@ position = Vector2( 640, 356 )
 tile_set = SubResource( 53 )
 show_collision = true
 format = 1
-tile_data = PoolIntArray( 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 7, 5, 0, 8, 5, 0, 9, 5, 0, 10, 5, 0, 11, 5, 0, 12, 5, 0, 13, 5, 0, 65538, 5, 0, 65549, 5, 0, 131072, 5, 0, 131073, 5, 0, 131074, 5, 0, 131075, 6, 0, 131076, 6, 0, 131078, 6, 0, 131084, 6, 0, 131085, 5, 0, 196608, 5, 0, 196621, 5, 0, 262144, 5, 0, 262157, 5, 0, 327680, 5, 0, 327683, 6, 0, 327684, 6, 0, 327685, 6, 0, 327686, 6, 0, 327688, 6, 0, 327689, 6, 0, 327693, 5, 0, 393216, 5, 0, 393226, 6, 0, 393229, 5, 0, 458752, 5, 0, 458753, 6, 0, 458754, 6, 0, 458755, 6, 0, 458756, 6, 0, 458757, 6, 0, 458758, 6, 0, 458759, 6, 0, 458760, 6, 0, 458761, 6, 0, 458762, 5, 0, 458763, 6, 0, 458764, 6, 0, 458765, 5, 0 )
+tile_data = PoolIntArray( -65536, 5, 0, -65535, 5, 0, -65534, 5, 0, -65533, 5, 0, -65532, 5, 0, -65531, 5, 0, -65530, 5, 0, -65529, 5, 0, -65528, 5, 0, -65527, 5, 0, -65526, 5, 0, -65525, 5, 0, -65524, 5, 0, -65523, 5, 0, 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 7, 5, 0, 8, 5, 0, 9, 5, 0, 10, 5, 0, 11, 5, 0, 12, 5, 0, 13, 5, 0, 65536, 5, 0, 65537, 5, 0, 65538, 5, 0, 65549, 5, 0, 131072, 5, 0, 131073, 5, 0, 131074, 5, 0, 131075, 6, 0, 131076, 6, 0, 131078, 6, 0, 131084, 6, 0, 131085, 5, 0, 196608, 5, 0, 196621, 5, 0, 262144, 5, 0, 262157, 5, 0, 327680, 5, 0, 327683, 6, 0, 327684, 6, 0, 327685, 6, 0, 327686, 6, 0, 327688, 6, 0, 327689, 6, 0, 327692, 6, 0, 327693, 5, 0, 393216, 5, 0, 393226, 6, 0, 393229, 5, 0, 458752, 5, 0, 458753, 6, 0, 458754, 6, 0, 458755, 6, 0, 458756, 6, 0, 458757, 6, 0, 458758, 6, 0, 458759, 6, 0, 458760, 6, 0, 458761, 6, 0, 458762, 5, 0, 458763, 6, 0, 458764, 6, 0, 458765, 5, 0 )
 script = ExtResource( 8 )
 
 [node name="Target" parent="." index="5" instance=ExtResource( 5 )]
@@ -664,7 +673,23 @@ second_direction = -45
 position = Vector2( 224, 96 )
 
 [node name="Camera2D" type="Camera2D" parent="." index="14"]
-position = Vector2( 451, 241 )
+position = Vector2( 452.682, 219.137 )
 current = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." index="15"]
+margin_left = 66.4983
+margin_top = -41.4915
+margin_right = 828.498
+margin_bottom = 46.5085
+custom_styles/normal = SubResource( 54 )
+custom_fonts/normal_font = SubResource( 55 )
+custom_colors/default_color = Color( 0.760784, 0.933333, 1, 1 )
+text = "Jumping around to place hoops is part of the gameplay. 
+The level designer is responsible for this mess"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Game Music 2" parent="." index="16" instance=ExtResource( 9 )]
 
 [editable path="GameUI"]

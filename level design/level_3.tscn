@@ -615,7 +615,7 @@ resource_local_to_scene = true
 10/z_index = 0
 
 [sub_resource type="StyleBoxFlat" id=54]
-bg_color = Color( 1, 1, 1, 1 )
+bg_color = Color( 0.333333, 0.164706, 0, 1 )
 
 [sub_resource type="DynamicFont" id=55]
 size = 28
@@ -665,10 +665,10 @@ position = Vector2( 352, 224 )
 margin_left = 284.0
 margin_top = 287.0
 margin_right = 793.0
-margin_bottom = 620.0
+margin_bottom = 580.0
 custom_styles/normal = SubResource( 54 )
 custom_fonts/normal_font = SubResource( 55 )
-custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
 text = "Hoops come in three colours: 
 	Burning Hat-red
 	Depressive Blue

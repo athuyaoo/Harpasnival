@@ -615,10 +615,10 @@ resource_local_to_scene = true
 10/z_index = 0
 
 [sub_resource type="StyleBoxFlat" id=54]
-bg_color = Color( 1, 1, 1, 1 )
+bg_color = Color( 0.333333, 0.164706, 0, 1 )
 
 [sub_resource type="DynamicFont" id=55]
-size = 32
+size = 26
 font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=56]
@@ -663,14 +663,14 @@ position = Vector2( 491, 324 )
 current = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." index="8"]
-margin_left = 304.0
-margin_top = 256.0
-margin_right = 941.0
-margin_bottom = 636.0
+margin_left = 308.0
+margin_top = 260.0
+margin_right = 928.0
+margin_bottom = 597.0
 rect_pivot_offset = Vector2( 264, 136 )
 custom_styles/normal = SubResource( 54 )
 custom_fonts/normal_font = SubResource( 55 )
-custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
 text = "Newbie's Guide to being a clown: 
 Move with arrow keys, throw with C
 
@@ -682,13 +682,13 @@ __meta__ = {
 }
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="." index="9"]
-margin_left = 296.0
-margin_top = 562.0
-margin_right = 933.0
-margin_bottom = 599.0
+margin_left = 310.295
+margin_top = 512.576
+margin_right = 929.295
+margin_bottom = 549.576
 custom_styles/normal = SubResource( 54 )
 custom_fonts/normal_font = SubResource( 56 )
-custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
 text = "(yes, we stole the idea from Genshin Impact)"
 __meta__ = {
 "_edit_use_anchors_": false

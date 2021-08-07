@@ -49,9 +49,9 @@ contacts_reported = 1
 contact_monitor = true
 linear_damp = 0.0
 script = ExtResource( 2 )
-blue_ball_color = Color( 0, 0, 0.756863, 1 )
-red_ball_color = Color( 0.843137, 0.101961, 0.101961, 1 )
-purple_ball_color = Color( 0.792157, 0.415686, 0.94902, 1 )
+blue_ball_color = Color( 0.376471, 0.560784, 1, 1 )
+red_ball_color = Color( 1, 0.35, 0.35, 1 )
+purple_ball_color = Color( 0.807843, 0.4, 0.717647, 1 )
 
 [node name="Position" type="Node2D" parent="."]
 
