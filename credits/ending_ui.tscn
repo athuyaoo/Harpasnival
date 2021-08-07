@@ -1,0 +1,148 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://level/game_ui/theme.tres" type="Theme" id=1]
+[ext_resource path="res://credits/ending_ui.gd" type="Script" id=2]
+[ext_resource path="res://credits/ending_script.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "slide_in"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Panel:rect_position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 815, -0.0991051, 96.7655, 0.0991051, -96.7655, 130, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "slide_out"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Panel:rect_position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 130, -0.25, 0, 0.25, 0, 625, -0.14, -190.109, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[node name="Ending UI" type="CanvasLayer"]
+layer = 128
+script = ExtResource( 2 )
+
+[node name="LevelMenu" type="Control" parent="."]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackOverlay" type="ColorRect" parent="LevelMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.231373, 0.231373, 0.231373, 0.52549 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="PanelContainer" parent="LevelMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -284.0
+margin_top = 527.0
+margin_right = 284.0
+margin_bottom = 843.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="LevelMenu/Panel"]
+margin_right = 568.0
+margin_bottom = 316.0
+grow_vertical = 2
+custom_constants/margin_right = 30
+custom_constants/margin_top = 20
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelMenu/Panel/MarginContainer"]
+margin_left = 30.0
+margin_top = 20.0
+margin_right = 538.0
+margin_bottom = 296.0
+custom_constants/separation = 15
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LevelMenu/Panel/MarginContainer/VBoxContainer"]
+visible = false
+margin_right = 508.0
+margin_bottom = 66.0
+text = "Game is paused"
+align = 1
+
+[node name="MenuButton" type="Button" parent="LevelMenu/Panel/MarginContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 508.0
+margin_bottom = 130.0
+text = "Return To Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextLevelButton" type="Button" parent="LevelMenu/Panel/MarginContainer/VBoxContainer"]
+margin_top = 145.0
+margin_right = 508.0
+margin_bottom = 235.0
+text = "Don't Click This"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelMenu"]
+anims/slide_in = SubResource( 1 )
+anims/slide_out = SubResource( 2 )
+
+[connection signal="pressed" from="LevelMenu/Panel/MarginContainer/VBoxContainer/MenuButton" to="." method="_on_MenuButton_pressed"]
+[connection signal="pressed" from="LevelMenu/Panel/MarginContainer/VBoxContainer/NextLevelButton" to="." method="_on_NextLevelButton_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://art assets/title screen.png" type="Texture" id=1]
 [ext_resource path="res://art assets/title logo.png" type="Texture" id=3]
@@ -40,10 +40,15 @@ size = 44
 font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=9]
-size = 22
+size = 48
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 7 )
 
 [node name="Title Screen" type="Node2D"]
@@ -308,40 +313,101 @@ text = "Made by the NUS Games Development Group"
 align = 1
 valign = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer"]
 margin_top = 201.0
 margin_right = 1024.0
-margin_bottom = 539.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer/HBoxContainer"]
-margin_right = 510.0
-margin_bottom = 338.0
+margin_bottom = 489.0
 size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/bold_font = SubResource( 9 )
+custom_fonts/normal_font = SubResource( 10 )
+bbcode_enabled = true
+bbcode_text = "[center][b]Thuya Oo[/b]
+Prototyping
+UI Design
+Programming Lead
 
-[node name="Label" type="Label" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_right = 510.0
-margin_bottom = 245.0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 9 )
-text = "Prototyping and Programming
-Thuya Oo
+[b]Cheng Geng[/b]
+Story Direction
+Character Design
+Character Animation
+Ending Art
 
-Character Design and Animation
+[b]Abner[/b]
+Art Direction
+Colour Rebalancing
+Tilemap Repainting
+
+[b]Hagu-nyan[/b]
+Game Design
+Level Design
+Title Art
+Minor Art Assets
+Minor Programming Assets
+
+[b]Fonts used[/b]
+Delius Regular, HVD Comic Serif Pro
+
+[b]Music used[/b]
+(Title Screen) Currently untitled song by Hagu-nyan's Cozy Corner
+(Main Game) Off to Osaka by Kevin MacLeod
+(Main Game) Jazz in Paris by Media Rights Productions
+(Ending) Sneaky Snitch by Kevin MacLeod
+(Credit Roll) Dinotorial by Cheng Geng, arranged by Hagu-nyan
+
+[b]Tilemaps and Background[/b]
+Kenney Game Assets
+Fantasy Skybox FREE
+[/center]"
+text = "Thuya Oo
+Prototyping
+UI Design
+Programming Lead
+
 Cheng Geng
+Story Direction
+Character Design
+Character Animation
+Ending Art
 
-Level Design, Title Art, Minor Art Assets
-Hagu-nyan"
-align = 1
+Abner
+Art Direction
+Colour Rebalancing
+Tilemap Repainting
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 249.0
-margin_right = 510.0
-margin_bottom = 332.0
+Hagu-nyan
+Game Design
+Level Design
+Title Art
+Minor Art Assets
+Minor Programming Assets
 
-[node name="BackButton" type="Button" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer/HBoxContainer/VBoxContainer/CenterContainer"]
-margin_left = 178.0
-margin_right = 331.0
+Fonts used
+Delius Regular, HVD Comic Serif Pro
+
+Music used
+(Title Screen) Currently untitled song by Hagu-nyan's Cozy Corner
+(Main Game) Off to Osaka by Kevin MacLeod
+(Main Game) Jazz in Paris by Media Rights Productions
+(Ending) Sneaky Snitch by Kevin MacLeod
+(Credit Roll) Dinotorial by Cheng Geng, arranged by Hagu-nyan
+
+Tilemaps and Background
+Kenney Game Assets
+Fantasy Skybox FREE
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer"]
+margin_top = 493.0
+margin_right = 1024.0
+margin_bottom = 576.0
+
+[node name="BackButton" type="Button" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer/CenterContainer"]
+margin_left = 435.0
+margin_right = 588.0
 margin_bottom = 83.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
@@ -356,26 +422,6 @@ custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 text = "Back"
 align = 0
 
-[node name="Label2" type="Label" parent="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer/HBoxContainer"]
-margin_left = 514.0
-margin_right = 1024.0
-margin_bottom = 338.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 9 )
-text = "Fonts used
-Delius Regular, HVD Comic Serif Pro
-
-Music used
-(Title screen) Currently untitled song by 
-Hagu-nyan's Cozy Corner
-(Main game) Off to Osaka by Kevin MacLeod
-Jazz in Paris by Media Rights Productions
-
-Tilemaps and Background
-Kenney Game Assets, Fantasy Skybox FREE"
-align = 1
-
 [node name="Tween" type="Tween" parent="CanvasLayer/MenuRoot"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -387,4 +433,4 @@ autoplay = true
 [connection signal="pressed" from="CanvasLayer/MenuRoot/Main Menu/VBoxContainer/MarginContainer2/Buttons/LevelSelectButton" to="CanvasLayer/MenuRoot" method="_on_LevelSelectButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/MenuRoot/Main Menu/VBoxContainer/MarginContainer2/Buttons/CreditsButton" to="CanvasLayer/MenuRoot" method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/MenuRoot/Level Menu/VBoxContainer/MarginContainer/BackButton" to="CanvasLayer/MenuRoot" method="_on_BackButton_pressed"]
-[connection signal="pressed" from="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer/HBoxContainer/VBoxContainer/CenterContainer/BackButton" to="CanvasLayer/MenuRoot" method="_on_BackButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/MenuRoot/Credit Menu/VBoxContainer/CenterContainer/BackButton" to="CanvasLayer/MenuRoot" method="_on_BackButton_pressed"]
