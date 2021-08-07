@@ -16,11 +16,5 @@ pause_mode = 2
 [node name="GameUI" parent="." instance=ExtResource( 2 )]
 layer = 100
 
-[node name="Panel" parent="GameUI/LevelMenu" index="1"]
-margin_top = -227.0
-margin_bottom = 227.0
-
-[connection signal="pressed" from="GameUI/LevelMenu/Panel/MarginContainer/VBoxContainer/NextLevelContainer/NextLevelButton" to="." method="_on_NextLevelButton_pressed"]
-[connection signal="pressed" from="GameUI/LevelMenu/Panel/MarginContainer/VBoxContainer/MenuContainer/MenuButton" to="." method="_on_MenuButton_pressed"]
-
-[editable path="GameUI"]
+[connection signal="menu_button_pressed" from="GameUI" to="." method="_on_GameUI_menu_button_pressed"]
+[connection signal="next_level_pressed" from="GameUI" to="." method="_on_GameUI_next_level_pressed"]
