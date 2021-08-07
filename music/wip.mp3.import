@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/wip.mp3-1032fe0d2288bf250d1e712c48953f0d.mp3str"
+
+[deps]
+
+source_file="res://music/wip.mp3"
+dest_files=[ "res://.import/wip.mp3-1032fe0d2288bf250d1e712c48953f0d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -35,7 +35,4 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="AnimatedSprite" parent="PickupAura" index="1"]
-frame = 2
-
 [editable path="BallDetectArea/Hoop Particles"]

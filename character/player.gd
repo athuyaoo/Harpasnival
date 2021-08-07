@@ -95,6 +95,9 @@ func update_held_item_position():
 
 	var collision_point = detect_hoop_raycast.get_collision_point()
 	var collider = detect_hoop_raycast.get_collider()
+	
+	if collider is Hoop:
+		collision_point += Vector2.DOWN
 	var colliding_structure_tilemap_pos = Utils.set_position_to_tile_map(collision_point)
 	var detect_hoop_tilemap_pos = Utils.set_position_to_tile_map(detect_hoop_raycast.global_position)
 
@@ -129,19 +132,22 @@ func update_held_item_position():
 	var cannot_place = (collider == null) or\
 		is_raycast_in_structure or\
 		(collider is Area2D)
-
+	
 	if cannot_place or $OnGround.get_collider() == null:
+		print('cannot_place')
 		if underneath_cannot_place:
+			print("underneath_cannot_place")
 			if $OnGround.get_collider() == null:
-				held_item.global_position = Utils.set_position_to_tile_map(
+				held_item.future_global_position = Utils.set_position_to_tile_map(
 					placed_position.global_position) - Vector2.RIGHT * $Direction.scale.x *64
 			else:
-				held_item.global_position = Utils.set_position_to_tile_map(placed_position.global_position)
+				held_item.future_global_position = Utils.set_position_to_tile_map(placed_position.global_position)
 		else:
 			if $OnGround.get_collider() != null:
-				held_item.global_position = underneath_tilemap_pos + Vector2.UP * 64
+				held_item.future_global_position = underneath_tilemap_pos + Vector2.UP * 64
 	else:
-		held_item.global_position = colliding_structure_tilemap_pos + Vector2.UP * 64
+
+		held_item.future_global_position = colliding_structure_tilemap_pos + Vector2.UP * 64
 
 func is_holding_item():
 	return held_item != null

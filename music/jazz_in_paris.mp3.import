@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/jazz_in_paris.mp3-1af65c84df537b69e23f8f27659d3f8a.mp3str"
+
+[deps]
+
+source_file="res://music/jazz_in_paris.mp3"
+dest_files=[ "res://.import/jazz_in_paris.mp3-1af65c84df537b69e23f8f27659d3f8a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

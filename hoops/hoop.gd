@@ -6,6 +6,7 @@ extends KinematicBody2D
 export var can_pick_up = true setget set_can_pick_up
 var is_picked_up := false setget set_is_picked_up
 var can_detect_ball := false setget set_can_detect_ball
+onready var future_global_position = global_position
 
 const hoop_sound = preload("res://sfx/hoop_pass.wav")
 
@@ -33,7 +34,8 @@ func can_place_down():
 
 	var current_position_empty = current_position_collisions.empty()
 
-	return collider != null and current_position_empty
+	return collider != null and current_position_empty and \
+		global_position - (future_global_position)
 
 
 func place_down():
@@ -42,10 +44,12 @@ func place_down():
 	self.is_picked_up = false
 	z_index = 0
 
-
 func set_is_picked_up(value):
 	$PickupAura.visible = ! value
 	is_picked_up = value
+	print('asdasd')
+	if not is_picked_up:
+		modulate = Color.white 
 
 
 func set_can_pick_up(value):
@@ -61,8 +65,15 @@ func _on_Pedestal_activation_changed(is_active):
 	set_can_detect_ball(is_active)
 
 func _process(_delta):
-	if is_picked_up or Engine.editor_hint:
+	if Engine.editor_hint:
+		modulate = Color.white
 		global_position = Utils.set_position_to_tile_map(global_position)
+		return
+	if not global_position.is_equal_approx(future_global_position):
+		global_position = global_position.linear_interpolate(future_global_position, 0.2)
+		if is_picked_up:
+			modulate = Color.darkgreen if can_place_down() else Color.red
+	
 
 func _on_BallDetector_area_entered(area):
 	var ball = (area.get_parent() as Ball)

@@ -15,7 +15,8 @@ func _ready() -> void:
 		MusicPlayer.start_playing(stream)
 	var hoops = get_tree().get_nodes_in_group("hoops")
 	for hoop in hoops:
-		$Pedestal.connect("activation_changed", hoop, "_on_Pedestal_activation_changed")
+		if hoop.has_method("_on_Pedestal_activation_changed"):
+			$Pedestal.connect("activation_changed", hoop, "_on_Pedestal_activation_changed")
 	for target in targets:
 		target.connect("target_destroyed", self, "check_win")
 
@@ -49,11 +50,12 @@ func on_ball_self_destructed():
 			target.is_destroyed = false
 
 func toggle_mute():
+	print("muted!")
 	is_muted = !is_muted
 	var master_sound = AudioServer.get_bus_index("Master")
 	AudioServer.set_bus_mute(master_sound, is_muted)
 	if OS.has_feature('JavaScript'):
-		JavaScript.eval("Howler.mute(" + str(is_muted) + ");")
+		JavaScript.eval("Howler.mute(" + ("true" if (is_muted) else "false") + ");")
 
 
 func return_to_main_menu():
@@ -64,9 +66,6 @@ func _input(event):
 		get_tree().reload_current_scene()
 	elif event.is_action_pressed("mute"):
 		toggle_mute()
-	elif event.is_action_pressed("quit"):
-		return_to_main_menu()
-
 
 func _on_GameUI_menu_button_pressed() -> void:
 	SceneChanger.change_scene(load(main_menu_path)) 

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/off_to_osaka.mp3-d8e57421935053ca69de2a12d98ff21a.mp3str"
+
+[deps]
+
+source_file="res://music/off_to_osaka.mp3"
+dest_files=[ "res://.import/off_to_osaka.mp3-d8e57421935053ca69de2a12d98ff21a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

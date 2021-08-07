@@ -639,6 +639,7 @@ script = ExtResource( 9 )
 position = Vector2( 800, 96 )
 
 [node name="ColorHoop" parent="." index="6" instance=ExtResource( 3 )]
+modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 352, 96 )
 input_pickable = true
 
@@ -646,11 +647,13 @@ input_pickable = true
 position = Vector2( 96, 224 )
 
 [node name="DirectionHoop" parent="." index="8" instance=ExtResource( 5 )]
+modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 608, 352 )
 input_pickable = true
 available_directions = [ 0, 45 ]
 
 [node name="DirectionHoop2" parent="." index="9" instance=ExtResource( 5 )]
+modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 224, 352 )
 input_pickable = true
 available_directions = [ 0, -45 ]
