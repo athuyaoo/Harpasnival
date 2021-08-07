@@ -4,11 +4,16 @@ extends Node
 
 var dialogue = [
 	"That's the last one of them! We've won, Maru-kun!",
-	"Good job, Clown-chan! You've destroyed all the PILLARS OF SOCIETY!\nNow that we've brought the CARNIVAL to the people, we gamers are free to roam!\nNever again shall GAMERS be OPPRESSED!",
-	"Oh no, it appears that my efforts to rid my local communities of oppression have only replaced the old guard with a new tyrannical class of gamers.\n\nThe only way I can live with this guilt is by sharing the blame with this ball.",
-	"All of my INTERACTIONS with you have merely been the REFLECTION of your own MISPLACED RESENTMENT.\n\nI am henceforth INANIMATE, as I should always have been.",
+	"Good job, Clown-chan! You've destroyed all the PILLARS OF SOCIETY!",
+	"Now that we've brought the CARNIVAL to the people, we gamers are free to roam! Never again shall GAMERS be OPPRESSED!",
+	"Oh no, it appears that my efforts to rid my local communities of oppression have only replaced the old guard with a new tyrannical class of gamers.",
+	"The only way I can live with this guilt is by sharing the blame with this ball.",
+	"All of my INTERACTIONS with you have merely been the REFLECTION of your own MISPLACED RESENTMENT.", 
+	"I am henceforth INANIMATE, as I should always have been.",
 	"Oh, dear me."
 ]
+
+var clown_speaking = [true, false, false, true, true, false, false, true]
 
 var dialogue_index = 0
 var active = true
@@ -53,13 +58,15 @@ func load_dialogue():
 		active = false
 
 func toggle_active(dialogue_index):
-	$"Speech Bubble".scale.x *= -1
-	if dialogue_index % 2 == 0:
+	var clown_currently_speaking = clown_speaking[dialogue_index]
+	if clown_currently_speaking:
 		$Clown.modulate = Color(1, 1, 1)
 		$Ball1.modulate = Color(0.7, 0.7, 0.7)
+		$"Speech Bubble".scale.x = -1
 	else:
 		$Ball1.modulate = Color(1, 1, 1)
 		$Clown.modulate = Color(0.7, 0.7, 0.7)
+		$"Speech Bubble".scale.x = 1
 
 func _on_Tween_tween_completed(object, key):
 	finished = true

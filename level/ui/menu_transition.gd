@@ -36,7 +36,7 @@ func move_to_previous_menu():
 	var previous_menu = menu_stack.pop_back()
 	if previous_menu != null:
 		tween.interpolate_property(current_menu, "rect_global_position", 
-			current_menu.rect_global_position, Vector2(menu_origin_size.x, 30), 
+			current_menu.rect_global_position, Vector2(menu_origin_size.x, 0), 
 			menu_transition_time)
 		tween.interpolate_property(previous_menu, "rect_global_position", 
 			previous_menu.rect_global_position, menu_origin_position, 
