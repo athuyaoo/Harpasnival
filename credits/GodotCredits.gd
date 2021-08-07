@@ -4,6 +4,8 @@ extends Node2D
 export var next_level_scene : PackedScene = null
 const main_menu_path = "res://level/main menu.tscn"
 
+const credit_music = preload("res://music/dinotorial.mp3")
+
 const section_time := 1.2
 const line_time := 0.6
 const base_speed := 100
@@ -76,7 +78,11 @@ var credits = [
 ]
 
 
+func _ready():
+	MusicPlayer.start_playing(credit_music)
+
 func _process(delta):
+	
 	var scroll_speed = base_speed * delta
 	
 	if section_next:

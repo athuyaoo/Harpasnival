@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://credits/GodotCredits.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Delius/Delius-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://music/Dinotorial WIP v3 No Piano.mp3" type="AudioStream" id=3]
 [ext_resource path="res://credits/ending_ui.tscn" type="PackedScene" id=4]
 [ext_resource path="res://level design/level_13.tscn" type="PackedScene" id=5]
 
@@ -46,10 +45,6 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
-autoplay = true
 
 [node name="Ending UI" parent="." instance=ExtResource( 4 )]
 

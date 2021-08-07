@@ -8,7 +8,7 @@
 [ext_resource path="res://character/player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://level design/level_10.tscn" type="PackedScene" id=7]
 [ext_resource path="res://level/assets/copy_collision.gd" type="Script" id=8]
-[ext_resource path="res://music/Game Music 1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://music/off_to_osaka.mp3" type="AudioStream" id=9]
 [ext_resource path="res://tilemaps/skyboxes/FS017_Sunset.tscn" type="PackedScene" id=10]
 [ext_resource path="res://fonts/Delius/Delius-Regular.ttf" type="DynamicFontData" id=11]
 [ext_resource path="res://level/assets/tile.png" type="Texture" id=18]
@@ -624,9 +624,7 @@ font_data = ExtResource( 11 )
 
 [node name="Level" instance=ExtResource( 1 )]
 next_level_scene = ExtResource( 7 )
-
-[node name="LevelMenu" parent="GameUI" index="0"]
-visible = false
+stream = ExtResource( 9 )
 
 [node name="FS017_Sunset" parent="." index="3" instance=ExtResource( 10 )]
 
@@ -723,7 +721,5 @@ __meta__ = {
 [node name="Camera2D" type="Camera2D" parent="." index="23"]
 position = Vector2( 512, 224 )
 current = true
-
-[node name="Game Music 1" parent="." index="24" instance=ExtResource( 9 )]
 
 [editable path="GameUI"]

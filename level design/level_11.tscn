@@ -8,7 +8,7 @@
 [ext_resource path="res://character/player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://level design/level_12.tscn" type="PackedScene" id=7]
 [ext_resource path="res://level/assets/copy_collision.gd" type="Script" id=8]
-[ext_resource path="res://music/Game Music 1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://music/off_to_osaka.mp3" type="AudioStream" id=9]
 [ext_resource path="res://level/assets/tile.png" type="Texture" id=18]
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/planetCenter.png" type="Texture" id=19]
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/planetMid.png" type="Texture" id=20]
@@ -617,6 +617,7 @@ resource_local_to_scene = true
 [node name="Level11" instance=ExtResource( 1 )]
 position = Vector2( 5, 2 )
 next_level_scene = ExtResource( 7 )
+stream = ExtResource( 9 )
 
 [node name="FS017_Sunset" parent="." index="3" instance=ExtResource( 27 )]
 position = Vector2( 512, 512 )
@@ -673,7 +674,5 @@ position = Vector2( 347, 350 )
 [node name="Camera2D" type="Camera2D" parent="." index="15"]
 position = Vector2( 352, 224 )
 current = true
-
-[node name="Game Music 1" parent="." index="16" instance=ExtResource( 9 )]
 
 [editable path="GameUI"]

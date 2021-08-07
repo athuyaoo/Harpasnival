@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://dialogue/Speech Bubble.png" type="Texture" id=1]
-[ext_resource path="res://music/Sneaky Snitch.mp3" type="AudioStream" id=2]
+[ext_resource path="res://music/sneaky_snitch.mp3" type="AudioStream" id=2]
 [ext_resource path="res://dialogue/Background.png" type="Texture" id=3]
 [ext_resource path="res://fonts/Delius/Delius-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://dialogue/Ball1.png" type="Texture" id=5]
 [ext_resource path="res://dialogue/Clown.png" type="Texture" id=6]
 [ext_resource path="res://dialogue/dialogue_script.gd" type="Script" id=7]
 [ext_resource path="res://credits/GodotCredits.tscn" type="PackedScene" id=8]
+[ext_resource path="res://level/game_music.gd" type="Script" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -21,6 +22,7 @@ font_data = ExtResource( 4 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 autoplay = true
+script = ExtResource( 9 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 487.465, 293.014 )

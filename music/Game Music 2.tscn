@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://music/Media-Right-Productions-Jazz-In-Paris.mp3" type="AudioStream" id=1]
+[ext_resource path="res://music/jazz_in_paris.mp3" type="AudioStream" id=1]
 
 [node name="Game Music 2" type="AudioStreamPlayer"]
 pause_mode = 2

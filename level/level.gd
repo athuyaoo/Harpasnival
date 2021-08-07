@@ -1,6 +1,7 @@
 extends Node2D
 
 export var next_level_scene : PackedScene = null
+export var stream : AudioStream = null
 onready var targets = get_tree().get_nodes_in_group("targets")
 var completed = false
 var is_muted = false
@@ -10,6 +11,8 @@ const main_menu_path = "res://level/main menu.tscn"
 func _ready() -> void:
 	if Engine.editor_hint:
 		return
+	if stream:
+		MusicPlayer.start_playing(stream)
 	var hoops = get_tree().get_nodes_in_group("hoops")
 	for hoop in hoops:
 		$Pedestal.connect("activation_changed", hoop, "_on_Pedestal_activation_changed")
@@ -46,13 +49,12 @@ func on_ball_self_destructed():
 			target.is_destroyed = false
 
 func toggle_mute():
-	if (!is_muted):
-		var master_sound = AudioServer.get_bus_index("Master")
-		AudioServer.set_bus_mute(master_sound, true)
-	else:
-		var master_sound = AudioServer.get_bus_index("Master")
-		AudioServer.set_bus_mute(master_sound, false)
 	is_muted = !is_muted
+	var master_sound = AudioServer.get_bus_index("Master")
+	AudioServer.set_bus_mute(master_sound, is_muted)
+	if OS.has_feature('JavaScript'):
+		JavaScript.eval("Howler.mute(" + str(is_muted) + ");")
+
 
 func return_to_main_menu():
 	get_tree().change_scene(main_menu_path)

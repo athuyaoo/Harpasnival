@@ -6,7 +6,7 @@
 [ext_resource path="res://hoops/direction_hoop/direction_hoop.tscn" type="PackedScene" id=4]
 [ext_resource path="res://targets/target.tscn" type="PackedScene" id=5]
 [ext_resource path="res://character/player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://music/Game Music 1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://music/off_to_osaka.mp3" type="AudioStream" id=7]
 [ext_resource path="res://level/assets/copy_collision.gd" type="Script" id=8]
 [ext_resource path="res://level design/level_8.tscn" type="PackedScene" id=9]
 [ext_resource path="res://fonts/Delius/Delius-Regular.ttf" type="DynamicFontData" id=10]
@@ -623,6 +623,7 @@ font_data = ExtResource( 10 )
 
 [node name="Level7" instance=ExtResource( 1 )]
 next_level_scene = ExtResource( 9 )
+stream = ExtResource( 7 )
 
 [node name="FS003_Day_Sunless" parent="." index="3" instance=ExtResource( 24 )]
 position = Vector2( 640, 356 )
@@ -682,7 +683,5 @@ text = "Need a hint? Refer to the next level! Also, read the instructions for le
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Game Music 1" parent="." index="15" instance=ExtResource( 7 )]
 
 [editable path="GameUI"]

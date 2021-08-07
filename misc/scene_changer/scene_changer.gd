@@ -6,9 +6,10 @@ func change_scene(scene: PackedScene):
 	scene_tree.paused = true
 	if not scene or not scene.can_instance():
 		return
+
 	$AnimationPlayer.play("fade")
 	yield($AnimationPlayer, "animation_finished")
-
+	MusicPlayer.stop_playing()
 	scene_tree.change_scene_to(scene)
 	yield(scene_tree, "idle_frame")
 	$AnimationPlayer.play_backwards("fade")

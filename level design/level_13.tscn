@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=2]
+[gd_scene load_steps=73 format=2]
 
 [ext_resource path="res://level design/template_level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://hoops/color_hoop/color_hoop.tscn" type="PackedScene" id=2]
@@ -6,7 +6,9 @@
 [ext_resource path="res://hoops/direction_hoop/direction_hoop.tscn" type="PackedScene" id=4]
 [ext_resource path="res://targets/target.tscn" type="PackedScene" id=5]
 [ext_resource path="res://character/player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://level/main menu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://level/assets/copy_collision.gd" type="Script" id=8]
+[ext_resource path="res://music/jazz_in_paris.mp3" type="AudioStream" id=9]
 [ext_resource path="res://level/assets/tile.png" type="Texture" id=18]
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/planetCenter.png" type="Texture" id=19]
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/planetMid.png" type="Texture" id=20]
@@ -17,7 +19,6 @@
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/[32x32] Dirt And Grass.png" type="Texture" id=25]
 [ext_resource path="res://hoops/duplicator_hoop/duplicator_hoop.tscn" type="PackedScene" id=26]
 [ext_resource path="res://tilemaps/skyboxes/FS017_Sunset.tscn" type="PackedScene" id=27]
-[ext_resource path="res://music/Game Music 2.tscn" type="PackedScene" id=28]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 48, 0, 64, 16, 64, 48, 48, 64, 16, 64, 0, 48, 0, 16, 16, 0, 16, 0 )
@@ -615,6 +616,8 @@ resource_local_to_scene = true
 
 [node name="Level13" instance=ExtResource( 1 )]
 position = Vector2( 2, 2 )
+next_level_scene = ExtResource( 7 )
+stream = ExtResource( 9 )
 
 [node name="FS017_Sunset" parent="." index="3" instance=ExtResource( 27 )]
 
@@ -700,7 +703,5 @@ position = Vector2( 94, 350 )
 [node name="Camera2D" type="Camera2D" parent="." index="22"]
 position = Vector2( 382, 222 )
 current = true
-
-[node name="Game Music 2" parent="." index="23" instance=ExtResource( 28 )]
 
 [editable path="GameUI"]

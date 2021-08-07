@@ -69,6 +69,7 @@ run/main_scene="res://level/main menu.tscn"
 
 Constants="*res://misc/constants.gd"
 SceneChanger="*res://misc/scene_changer/scene_changer.tscn"
+MusicPlayer="*res://misc/music_player.tscn"
 
 [display]
 

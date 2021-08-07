@@ -7,7 +7,7 @@ var menu_transition_time := 0.2
 var current_menu
 var menu_stack := []
 
-const level_1_scene := preload("res://level design/level_1.tscn")
+var level_1_scene := "res://level design/level_1.tscn"
 
 onready var menu_1 = $"Main Menu"
 onready var menu_2 = $"Credit Menu"
@@ -74,5 +74,4 @@ func _on_BackButton_pressed() -> void:
 
 
 func _on_PlayButton_pressed() -> void:
-	
-	SceneChanger.change_scene(level_1_scene)
+	SceneChanger.change_scene(load(level_1_scene))

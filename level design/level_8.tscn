@@ -15,7 +15,7 @@
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/stoneMid.png" type="Texture" id=13]
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/grassCenter.png" type="Texture" id=14]
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/[32x32] Dirt And Grass.png" type="Texture" id=15]
-[ext_resource path="res://music/Game Music 2.tscn" type="PackedScene" id=16]
+[ext_resource path="res://music/jazz_in_paris.mp3" type="AudioStream" id=16]
 [ext_resource path="res://tilemaps/skyboxes/FS003_Day_Sunless.tscn" type="PackedScene" id=17]
 [ext_resource path="res://level design/level_9.tscn" type="PackedScene" id=18]
 
@@ -615,6 +615,7 @@ resource_local_to_scene = true
 
 [node name="Level" instance=ExtResource( 1 )]
 next_level_scene = ExtResource( 18 )
+stream = ExtResource( 16 )
 
 [node name="FS003_Day_Sunless" parent="." index="3" instance=ExtResource( 17 )]
 position = Vector2( 641.059, 352 )
@@ -665,7 +666,5 @@ position = Vector2( 672, 96 )
 [node name="Camera2D" type="Camera2D" parent="." index="13"]
 position = Vector2( 612.263, 192.248 )
 current = true
-
-[node name="Game Music 2" parent="." index="14" instance=ExtResource( 16 )]
 
 [editable path="GameUI"]
