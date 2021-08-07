@@ -16,6 +16,7 @@ func _ready() -> void:
 	for target in targets:
 		target.connect("target_destroyed", self, "check_win")
 
+
 func check_win():
 	var all_targets_destroyed = true
 	for target in targets:
@@ -64,9 +65,10 @@ func _input(event):
 	elif event.is_action_pressed("quit"):
 		return_to_main_menu()
 
-func _on_NextLevelButton_pressed() -> void:
-	SceneChanger.change_scene(next_level_scene)
+
+func _on_GameUI_menu_button_pressed() -> void:
+	SceneChanger.change_scene(load(main_menu_path)) 
 
 
-func _on_MenuButton_pressed() -> void:
-	SceneChanger.change_scene(load(main_menu_path))
+func _on_GameUI_next_level_pressed() -> void:
+	SceneChanger.change_scene(next_level_scene) 

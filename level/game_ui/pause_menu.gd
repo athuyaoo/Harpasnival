@@ -8,6 +8,10 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause") and not is_level_completed:
 		toggle_pause()
 
+func _ready():
+	visible = false
+	
+
 func toggle_pause():
 	var will_pause = not get_tree().paused
 
