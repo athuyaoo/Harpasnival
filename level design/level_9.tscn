@@ -625,9 +625,6 @@ font_data = ExtResource( 11 )
 [node name="Level" instance=ExtResource( 1 )]
 next_level_scene = ExtResource( 7 )
 
-[node name="LevelMenu" parent="GameUI" index="0"]
-visible = false
-
 [node name="FS017_Sunset" parent="." index="3" instance=ExtResource( 10 )]
 
 [node name="TileMap" type="TileMap" parent="." index="4"]

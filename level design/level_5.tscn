@@ -651,7 +651,7 @@ available_directions = [ 0, 45 ]
 [node name="DirectionHoop2" parent="." index="9" instance=ExtResource( 5 )]
 position = Vector2( 224, 352 )
 input_pickable = true
-available_directions = [ 0, -45 ]
+available_directions = [ 0, 45 ]
 
 [node name="Pedestal" parent="." index="10" instance=ExtResource( 4 )]
 position = Vector2( 224, 224 )

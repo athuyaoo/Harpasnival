@@ -6,7 +6,7 @@
 [ext_resource path="res://hoops/direction_hoop/direction_hoop.tscn" type="PackedScene" id=4]
 [ext_resource path="res://targets/target.tscn" type="PackedScene" id=5]
 [ext_resource path="res://character/player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://dialogue/ending.tscn" type="PackedScene" id=7]
+[ext_resource path="res://level design/level_13.tscn" type="PackedScene" id=7]
 [ext_resource path="res://level/assets/copy_collision.gd" type="Script" id=8]
 [ext_resource path="res://music/Game Music 2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://level/assets/tile.png" type="Texture" id=17]

@@ -643,12 +643,12 @@ position = Vector2( 864, 160 )
 [node name="DirectionHoop" parent="." index="7" instance=ExtResource( 4 )]
 position = Vector2( 672, 96 )
 input_pickable = true
-available_directions = [ 0, 45 ]
+available_directions = [ 0 ]
 
 [node name="DirectionHoop3" parent="." index="8" instance=ExtResource( 4 )]
 position = Vector2( 352, 224 )
 input_pickable = true
-available_directions = [ -45, 45 ]
+available_directions = [ 0 ]
 
 [node name="DirectionHoop4" parent="." index="9" instance=ExtResource( 4 )]
 position = Vector2( 352, 96 )
@@ -661,7 +661,7 @@ position = Vector2( 160, 224 )
 [node name="DirectionHoop2" parent="." index="11" instance=ExtResource( 4 )]
 position = Vector2( 672, 224 )
 input_pickable = true
-available_directions = [ -45, 0 ]
+available_directions = [ 0 ]
 
 [node name="Pedestal" parent="." index="12" instance=ExtResource( 3 )]
 position = Vector2( 224, 96 )

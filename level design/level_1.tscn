@@ -644,13 +644,11 @@ current_target_color = 1
 
 [node name="ColorHoop" parent="." index="3" instance=ExtResource( 3 )]
 position = Vector2( 416, 160 )
-can_pick_up = false
 hoop_color = 1
 
 [node name="DirectionHoop" parent="." index="4" instance=ExtResource( 4 )]
 position = Vector2( 288, 160 )
-can_pick_up = false
-available_directions = [ 0 ]
+available_directions = [ -180 ]
 
 [node name="Player" parent="." index="5" instance=ExtResource( 20 )]
 position = Vector2( 96, 544 )

@@ -626,7 +626,7 @@ font_data = ExtResource( 2 )
 next_level_scene = ExtResource( 9 )
 
 [node name="FS002_Sunrise" parent="." index="3" instance=ExtResource( 5 )]
-position = Vector2( 641.26, 500 )
+position = Vector2( 642.054, 500 )
 
 [node name="TileMap" type="TileMap" parent="." index="4"]
 tile_set = SubResource( 53 )
@@ -636,7 +636,6 @@ script = ExtResource( 10 )
 
 [node name="Target" parent="." index="5" instance=ExtResource( 7 )]
 position = Vector2( 480, 160 )
-current_target_color = 1
 
 [node name="Target2" parent="." index="6" instance=ExtResource( 7 )]
 position = Vector2( 608, 96 )
@@ -647,35 +646,36 @@ can_pick_up = false
 
 [node name="ColorHoop3" parent="." index="8" instance=ExtResource( 3 )]
 position = Vector2( 416, 160 )
-can_pick_up = false
 hoop_color = 1
 
 [node name="DirectionHoop" parent="." index="9" instance=ExtResource( 6 )]
 position = Vector2( 416, 288 )
-can_pick_up = false
 available_directions = [ 45, 0, -45 ]
 
-[node name="Player" parent="." index="10" instance=ExtResource( 8 )]
+[node name="DirectionHoop3" parent="." index="10" instance=ExtResource( 6 )]
+position = Vector2( 544, 224 )
+available_directions = [ 45, 0, -45 ]
+
+[node name="Player" parent="." index="11" instance=ExtResource( 8 )]
 position = Vector2( 96, 224 )
 
-[node name="DirectionHoop2" parent="." index="11" instance=ExtResource( 6 )]
+[node name="DirectionHoop2" parent="." index="12" instance=ExtResource( 6 )]
 position = Vector2( 288, 160 )
-can_pick_up = false
 available_directions = [ -180, 0, -45 ]
 
-[node name="DuplicatorHoop" parent="." index="12" instance=ExtResource( 30 )]
+[node name="DuplicatorHoop" parent="." index="13" instance=ExtResource( 30 )]
 position = Vector2( 160, 288 )
 can_pick_up = false
 second_direction = -45
 
-[node name="Pedestal" parent="." index="13" instance=ExtResource( 4 )]
+[node name="Pedestal" parent="." index="14" instance=ExtResource( 4 )]
 position = Vector2( 96, 288 )
 
-[node name="Camera2D" type="Camera2D" parent="." index="14"]
+[node name="Camera2D" type="Camera2D" parent="." index="15"]
 position = Vector2( 416, 288 )
 current = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." index="15"]
+[node name="RichTextLabel" type="RichTextLabel" parent="." index="16"]
 margin_left = 32.0
 margin_top = 352.0
 margin_right = 800.0
@@ -691,6 +691,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Game Music 2" parent="." index="16" instance=ExtResource( 29 )]
+[node name="Game Music 2" parent="." index="17" instance=ExtResource( 29 )]
 
 [editable path="GameUI"]
