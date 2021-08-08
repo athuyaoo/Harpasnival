@@ -19,6 +19,8 @@ var dialogue_index = 0
 var active = true
 var finished = false
 
+export var credits_scene : PackedScene = null
+
 func _ready():
 	load_dialogue()
 	
@@ -56,6 +58,7 @@ func load_dialogue():
 		$Ball1.modulate = Color(0.7, 0.7, 0.7)
 		finished = true
 		active = false
+		SceneChanger.change_scene(credits_scene)
 
 func toggle_active(dialogue_index):
 	var clown_currently_speaking = clown_speaking[dialogue_index]

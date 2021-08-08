@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://credits/GodotCredits.gd" type="Script" id=1]
+[ext_resource path="res://fonts/Delius/Delius-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://music/Dinotorial WIP v3 No Piano.mp3" type="AudioStream" id=3]
+[ext_resource path="res://credits/ending_ui.tscn" type="PackedScene" id=4]
+[ext_resource path="res://level design/level_13.tscn" type="PackedScene" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 2 )
+
+[node name="GodotCredits" type="Node2D"]
+script = ExtResource( 1 )
+next_level_scene = ExtResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1030.0
+margin_bottom = 588.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsContainer" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1026.0
+margin_bottom = 571.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line" type="Label" parent="CreditsContainer"]
+anchor_right = 1.0
+margin_left = 1.60571
+margin_top = 587.914
+margin_right = 1.60571
+margin_bottom = 669.914
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "Credits line"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+
+[node name="Ending UI" parent="." instance=ExtResource( 4 )]
+
+[connection signal="menu_button_pressed" from="Ending UI" to="." method="_on_Ending_UI_menu_button_pressed"]
+[connection signal="next_level_pressed" from="Ending UI" to="." method="_on_Ending_UI_next_level_pressed"]
