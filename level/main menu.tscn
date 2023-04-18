@@ -9,6 +9,13 @@
 [ext_resource path="res://level/ui/level button.tscn" type="PackedScene" id=11]
 [ext_resource path="res://music/wip 7.mp3" type="AudioStream" id=12]
 
+[sub_resource type="DynamicFont" id=6]
+size = 60
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 6 )
+
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 1, 1, 0.188235 )
 
@@ -20,13 +27,6 @@ bg_color = Color( 1, 1, 0, 0.223529 )
 [sub_resource type="StyleBoxEmpty" id=4]
 
 [sub_resource type="StyleBoxEmpty" id=5]
-
-[sub_resource type="DynamicFont" id=6]
-size = 60
-outline_size = 5
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 100
@@ -117,59 +117,59 @@ custom_constants/margin_bottom = 20
 
 [node name="Buttons" type="VBoxContainer" parent="CanvasLayer/MenuRoot/Main Menu/VBoxContainer/MarginContainer2"]
 margin_left = 40.0
-margin_right = 416.0
+margin_right = 410.0
 margin_bottom = 249.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 custom_constants/separation = 0
 
 [node name="PlayButton" type="Button" parent="CanvasLayer/MenuRoot/Main Menu/VBoxContainer/MarginContainer2/Buttons"]
-margin_right = 376.0
+margin_right = 370.0
 margin_bottom = 83.0
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 6 )
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
-custom_fonts/font = SubResource( 6 )
-custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
-custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 text = "Play"
 align = 0
 
 [node name="LevelSelectButton" type="Button" parent="CanvasLayer/MenuRoot/Main Menu/VBoxContainer/MarginContainer2/Buttons"]
 margin_top = 83.0
-margin_right = 376.0
+margin_right = 370.0
 margin_bottom = 166.0
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 6 )
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
-custom_fonts/font = SubResource( 6 )
-custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
-custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 text = "Level Select"
 align = 0
 
 [node name="CreditsButton" type="Button" parent="CanvasLayer/MenuRoot/Main Menu/VBoxContainer/MarginContainer2/Buttons"]
 margin_top = 166.0
-margin_right = 376.0
+margin_right = 370.0
 margin_bottom = 249.0
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 6 )
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
-custom_fonts/font = SubResource( 6 )
-custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
-custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 text = "Credits"
 align = 0
 
@@ -244,16 +244,16 @@ margin_left = 162.0
 margin_top = 3.0
 margin_right = 421.0
 margin_bottom = 86.0
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 6 )
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
-custom_fonts/font = SubResource( 6 )
-custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
-custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -409,16 +409,16 @@ margin_bottom = 576.0
 margin_left = 435.0
 margin_right = 588.0
 margin_bottom = 83.0
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 6 )
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
-custom_fonts/font = SubResource( 6 )
-custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
-custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 text = "Back"
 align = 0
 

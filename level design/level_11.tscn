@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=2]
+[gd_scene load_steps=77 format=2]
 
 [ext_resource path="res://level design/template_level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://hoops/color_hoop/color_hoop.tscn" type="PackedScene" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://level design/level_12.tscn" type="PackedScene" id=7]
 [ext_resource path="res://level/assets/copy_collision.gd" type="Script" id=8]
 [ext_resource path="res://music/Game Music 1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ball/ball.tscn" type="PackedScene" id=10]
+[ext_resource path="res://hoops/color_hoop/blue_hoop.png" type="Texture" id=11]
+[ext_resource path="res://hoops/color_hoop/red_hoop.png" type="Texture" id=12]
+[ext_resource path="res://hoops/color_hoop/purple_hoop.png" type="Texture" id=13]
 [ext_resource path="res://level/assets/tile.png" type="Texture" id=18]
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/planetCenter.png" type="Texture" id=19]
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/planetMid.png" type="Texture" id=20]
@@ -618,62 +622,110 @@ resource_local_to_scene = true
 position = Vector2( 5, 2 )
 next_level_scene = ExtResource( 7 )
 
+[node name="LevelMenu" parent="GameUI" index="0"]
+visible = true
+
+[node name="Panel" parent="GameUI/LevelMenu" index="1"]
+margin_top = 527.0
+margin_bottom = 843.0
+
 [node name="FS017_Sunset" parent="." index="3" instance=ExtResource( 27 )]
 position = Vector2( 512, 512 )
 
 [node name="TileMap" type="TileMap" parent="." index="4"]
 tile_set = SubResource( 53 )
 format = 1
-tile_data = PoolIntArray( 0, 3, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0, 4, 3, 0, 5, 3, 0, 6, 3, 0, 7, 3, 0, 8, 3, 0, 9, 3, 0, 65536, 3, 0, 65540, 3, 0, 65541, 3, 0, 65542, 3, 0, 65543, 3, 0, 65544, 3, 0, 65545, 3, 0, 131072, 3, 0, 131076, 3, 0, 131077, 3, 0, 131078, 3, 0, 131079, 3, 0, 131080, 3, 0, 131081, 3, 0, 131082, 3, 0, 196608, 3, 0, 196612, 3, 0, 196618, 3, 0, 262144, 3, 0, 262148, 3, 0, 262154, 3, 0, 327680, 3, 0, 327690, 3, 0, 393216, 3, 0, 393217, 4, 0, 393218, 4, 0, 393219, 4, 0, 393220, 4, 0, 393221, 4, 0, 393222, 4, 0, 393223, 4, 0, 393224, 4, 0, 393225, 4, 0, 393226, 3, 0 )
+tile_data = PoolIntArray( 0, 3, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0, 4, 3, 0, 5, 3, 0, 6, 3, 0, 7, 3, 0, 8, 3, 0, 9, 3, 0, 65536, 3, 0, 65540, 3, 0, 65541, 3, 0, 65542, 3, 0, 65543, 3, 0, 65544, 3, 0, 65545, 3, 0, 65546, 3, 0, 65547, 3, 0, 131072, 3, 0, 131076, 3, 0, 131077, 3, 0, 131083, 3, 0, 196608, 3, 0, 196612, 3, 0, 196619, 3, 0, 262144, 3, 0, 262148, 3, 0, 262155, 3, 0, 327680, 3, 0, 327691, 3, 0, 393216, 3, 0, 393217, 4, 0, 393218, 4, 0, 393219, 4, 0, 393220, 4, 0, 393221, 4, 0, 393222, 4, 0, 393223, 4, 0, 393224, 4, 0, 393225, 4, 0, 393227, 3, 0, 458761, 3, 0, 458762, 3, 0, 458763, 3, 0 )
 script = ExtResource( 8 )
 
 [node name="Target" parent="." index="5" instance=ExtResource( 5 )]
+position = Vector2( 667, 350 )
+current_target_color = 1
+
+[node name="Target5" parent="." index="6" instance=ExtResource( 5 )]
+position = Vector2( 667, 414 )
+current_target_color = 1
+
+[node name="Target2" parent="." index="7" instance=ExtResource( 5 )]
+position = Vector2( 667, 286 )
+current_target_color = 2
+
+[node name="Target3" parent="." index="8" instance=ExtResource( 5 )]
+position = Vector2( 667, 222 )
+
+[node name="Target4" parent="." index="9" instance=ExtResource( 5 )]
+position = Vector2( 667, 158 )
+
+[node name="ColorHoop" parent="." index="10" instance=ExtResource( 2 )]
 position = Vector2( 603, 350 )
-current_target_color = 1
-
-[node name="Target2" parent="." index="6" instance=ExtResource( 5 )]
-position = Vector2( 603, 286 )
-current_target_color = 1
-
-[node name="Target3" parent="." index="7" instance=ExtResource( 5 )]
-position = Vector2( 603, 222 )
-current_target_color = 1
-
-[node name="ColorHoop" parent="." index="8" instance=ExtResource( 2 )]
-position = Vector2( 539, 350 )
 input_pickable = true
+blue_hoop = ExtResource( 11 )
+red_hoop = ExtResource( 12 )
+purple_hoop = ExtResource( 13 )
 hoop_color = 1
 
-[node name="ColorHoop2" parent="." index="9" instance=ExtResource( 2 )]
-position = Vector2( 475, 286 )
-input_pickable = true
-hoop_color = 1
-
-[node name="DuplicatorHoop" parent="." index="10" instance=ExtResource( 26 )]
-position = Vector2( 475, 350 )
-input_pickable = true
-second_direction = -45
-
-[node name="DuplicatorHoop2" parent="." index="11" instance=ExtResource( 26 )]
+[node name="ColorHoop2" parent="." index="11" instance=ExtResource( 2 )]
 position = Vector2( 539, 286 )
 input_pickable = true
-second_direction = 45
+blue_hoop = ExtResource( 11 )
+red_hoop = ExtResource( 12 )
+purple_hoop = ExtResource( 13 )
+hoop_color = 0
 
-[node name="DirectionHoop" parent="." index="12" instance=ExtResource( 4 )]
-position = Vector2( 411, 350 )
+[node name="ColorHoop3" parent="." index="12" instance=ExtResource( 2 )]
+position = Vector2( 603, 222 )
 input_pickable = true
-available_directions = [ 45, 0, -45 ]
+blue_hoop = ExtResource( 11 )
+red_hoop = ExtResource( 12 )
+purple_hoop = ExtResource( 13 )
+hoop_color = 2
 
-[node name="Player" parent="." index="13" instance=ExtResource( 6 )]
+[node name="DuplicatorHoop" parent="." index="13" instance=ExtResource( 26 )]
+position = Vector2( 539, 350 )
+input_pickable = true
+first_direction = 0
+second_direction = -45
+ball_scene = ExtResource( 10 )
+
+[node name="DuplicatorHoop3" parent="." index="14" instance=ExtResource( 26 )]
+position = Vector2( 91, 350 )
+input_pickable = true
+first_direction = 0
+second_direction = -45
+ball_scene = ExtResource( 10 )
+
+[node name="DuplicatorHoop4" parent="." index="15" instance=ExtResource( 26 )]
+position = Vector2( 91, 286 )
+input_pickable = true
+first_direction = 0
+second_direction = -45
+ball_scene = ExtResource( 10 )
+
+[node name="DuplicatorHoop2" parent="." index="16" instance=ExtResource( 26 )]
+position = Vector2( 603, 286 )
+input_pickable = true
+first_direction = 0
+second_direction = 45
+ball_scene = ExtResource( 10 )
+
+[node name="DirectionHoop" parent="." index="17" instance=ExtResource( 4 )]
+position = Vector2( 475, 350 )
+available_directions = [ 0 ]
+
+[node name="DirectionHoop2" parent="." index="18" instance=ExtResource( 4 )]
+position = Vector2( 91, 222 )
+available_directions = [ 0 ]
+
+[node name="Player" parent="." index="19" instance=ExtResource( 6 )]
 position = Vector2( 352, 288 )
 
-[node name="Pedestal" parent="." index="14" instance=ExtResource( 3 )]
+[node name="Pedestal" parent="." index="20" instance=ExtResource( 3 )]
 position = Vector2( 347, 350 )
 
-[node name="Camera2D" type="Camera2D" parent="." index="15"]
+[node name="Camera2D" type="Camera2D" parent="." index="21"]
 position = Vector2( 352, 224 )
 current = true
 
-[node name="Game Music 1" parent="." index="16" instance=ExtResource( 9 )]
+[node name="Game Music 1" parent="." index="22" instance=ExtResource( 9 )]
 
 [editable path="GameUI"]

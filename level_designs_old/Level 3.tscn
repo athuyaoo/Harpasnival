@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://hoops/color_hoop/color_hoop.tscn" type="PackedScene" id=1]
 [ext_resource path="res://hoops/direction_hoop/direction_hoop.tscn" type="PackedScene" id=2]
@@ -13,13 +13,16 @@
 [ext_resource path="res://level/assets/copy_collision.gd" type="Script" id=11]
 [ext_resource path="res://sfx/LevelFailSound.tscn" type="PackedScene" id=12]
 [ext_resource path="res://sfx/LevelWinSound.tscn" type="PackedScene" id=13]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 1, 1, 1, 1 )
+[ext_resource path="res://hoops/color_hoop/blue_hoop.png" type="Texture" id=14]
+[ext_resource path="res://hoops/color_hoop/red_hoop.png" type="Texture" id=15]
+[ext_resource path="res://hoops/color_hoop/purple_hoop.png" type="Texture" id=16]
 
 [sub_resource type="DynamicFont" id=2]
 size = 28
 font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
 
 [node name="Level 3" type="Node2D"]
 script = ExtResource( 8 )
@@ -39,15 +42,25 @@ current_target_color = 2
 [node name="ColorHoop" parent="." instance=ExtResource( 1 )]
 position = Vector2( 544, 96 )
 input_pickable = true
+blue_hoop = ExtResource( 14 )
+red_hoop = ExtResource( 15 )
+purple_hoop = ExtResource( 16 )
+hoop_color = 0
 
 [node name="ColorHoop2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 96, 352 )
 input_pickable = true
+blue_hoop = ExtResource( 14 )
+red_hoop = ExtResource( 15 )
+purple_hoop = ExtResource( 16 )
 hoop_color = 2
 
 [node name="ColorHoop3" parent="." instance=ExtResource( 1 )]
 position = Vector2( 224, 352 )
 input_pickable = true
+blue_hoop = ExtResource( 14 )
+red_hoop = ExtResource( 15 )
+purple_hoop = ExtResource( 16 )
 hoop_color = 1
 
 [node name="DirectionHoop" parent="." instance=ExtResource( 2 )]
@@ -66,9 +79,9 @@ margin_left = 288.0
 margin_top = 288.0
 margin_right = 797.0
 margin_bottom = 668.0
-custom_styles/normal = SubResource( 1 )
-custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 2 )
+custom_styles/normal = SubResource( 1 )
 text = "Hoops come in three colours: 
 	Burning Hat-red
 	Depressive Blue

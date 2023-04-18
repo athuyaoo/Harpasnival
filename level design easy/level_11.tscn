@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=2]
+[gd_scene load_steps=77 format=2]
 
 [ext_resource path="res://level design/template_level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://hoops/color_hoop/color_hoop.tscn" type="PackedScene" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://level design/level_12.tscn" type="PackedScene" id=7]
 [ext_resource path="res://level/assets/copy_collision.gd" type="Script" id=8]
 [ext_resource path="res://music/Game Music 1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ball/ball.tscn" type="PackedScene" id=10]
+[ext_resource path="res://hoops/color_hoop/blue_hoop.png" type="Texture" id=11]
+[ext_resource path="res://hoops/color_hoop/red_hoop.png" type="Texture" id=12]
+[ext_resource path="res://hoops/color_hoop/purple_hoop.png" type="Texture" id=13]
 [ext_resource path="res://level/assets/tile.png" type="Texture" id=18]
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/planetCenter.png" type="Texture" id=19]
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/planetMid.png" type="Texture" id=20]
@@ -642,22 +646,32 @@ current_target_color = 1
 [node name="ColorHoop" parent="." index="8" instance=ExtResource( 2 )]
 position = Vector2( 539, 350 )
 input_pickable = true
+blue_hoop = ExtResource( 11 )
+red_hoop = ExtResource( 12 )
+purple_hoop = ExtResource( 13 )
 hoop_color = 1
 
 [node name="ColorHoop2" parent="." index="9" instance=ExtResource( 2 )]
 position = Vector2( 475, 286 )
 input_pickable = true
+blue_hoop = ExtResource( 11 )
+red_hoop = ExtResource( 12 )
+purple_hoop = ExtResource( 13 )
 hoop_color = 1
 
 [node name="DuplicatorHoop" parent="." index="10" instance=ExtResource( 26 )]
 position = Vector2( 475, 350 )
 input_pickable = true
+first_direction = 0
 second_direction = -45
+ball_scene = ExtResource( 10 )
 
 [node name="DuplicatorHoop2" parent="." index="11" instance=ExtResource( 26 )]
 position = Vector2( 539, 286 )
 input_pickable = true
+first_direction = 0
 second_direction = 45
+ball_scene = ExtResource( 10 )
 
 [node name="DirectionHoop" parent="." index="12" instance=ExtResource( 4 )]
 position = Vector2( 411, 350 )

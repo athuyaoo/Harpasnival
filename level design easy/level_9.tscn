@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=2]
+[gd_scene load_steps=80 format=2]
 
 [ext_resource path="res://level design/template_level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://hoops/color_hoop/color_hoop.tscn" type="PackedScene" id=2]
@@ -11,6 +11,10 @@
 [ext_resource path="res://music/Game Music 1.tscn" type="PackedScene" id=9]
 [ext_resource path="res://tilemaps/skyboxes/FS017_Sunset.tscn" type="PackedScene" id=10]
 [ext_resource path="res://fonts/Delius/Delius-Regular.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://ball/ball.tscn" type="PackedScene" id=12]
+[ext_resource path="res://hoops/color_hoop/blue_hoop.png" type="Texture" id=13]
+[ext_resource path="res://hoops/color_hoop/red_hoop.png" type="Texture" id=14]
+[ext_resource path="res://hoops/color_hoop/purple_hoop.png" type="Texture" id=15]
 [ext_resource path="res://level/assets/tile.png" type="Texture" id=18]
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/planetCenter.png" type="Texture" id=19]
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/planetMid.png" type="Texture" id=20]
@@ -615,18 +619,15 @@ resource_local_to_scene = true
 } ]
 10/z_index = 0
 
-[sub_resource type="StyleBoxFlat" id=54]
-bg_color = Color( 0.243137, 0, 0.121569, 1 )
-
 [sub_resource type="DynamicFont" id=55]
 size = 28
 font_data = ExtResource( 11 )
 
+[sub_resource type="StyleBoxFlat" id=54]
+bg_color = Color( 0.243137, 0, 0.121569, 1 )
+
 [node name="Level" instance=ExtResource( 1 )]
 next_level_scene = ExtResource( 7 )
-
-[node name="LevelMenu" parent="GameUI" index="0"]
-visible = false
 
 [node name="FS017_Sunset" parent="." index="3" instance=ExtResource( 10 )]
 
@@ -646,16 +647,25 @@ position = Vector2( 864, 96 )
 [node name="DuplicatorHoop" parent="." index="7" instance=ExtResource( 26 )]
 position = Vector2( 224, 96 )
 can_pick_up = false
+first_direction = 0
 second_direction = 45
+ball_scene = ExtResource( 12 )
 
 [node name="ColorHoop" parent="." index="8" instance=ExtResource( 2 )]
 position = Vector2( 288, 96 )
 can_pick_up = false
+blue_hoop = ExtResource( 13 )
+red_hoop = ExtResource( 14 )
+purple_hoop = ExtResource( 15 )
 hoop_color = 1
 
 [node name="ColorHoop2" parent="." index="9" instance=ExtResource( 2 )]
 position = Vector2( 288, 160 )
 can_pick_up = false
+blue_hoop = ExtResource( 13 )
+red_hoop = ExtResource( 14 )
+purple_hoop = ExtResource( 15 )
+hoop_color = 0
 
 [node name="DirectionHoop" parent="." index="10" instance=ExtResource( 4 )]
 position = Vector2( 352, 224 )
@@ -665,34 +675,42 @@ available_directions = [ 135 ]
 [node name="DirectionHoop2" parent="." index="11" instance=ExtResource( 4 )]
 position = Vector2( 352, 96 )
 can_pick_up = false
+available_directions = [ 45, 0, -45, 135, -180, -135 ]
 
 [node name="DirectionHoop3" parent="." index="12" instance=ExtResource( 4 )]
 position = Vector2( 480, 96 )
 can_pick_up = false
+available_directions = [ 45, 0, -45, 135, -180, -135 ]
 
 [node name="DirectionHoop4" parent="." index="13" instance=ExtResource( 4 )]
 position = Vector2( 480, 224 )
 can_pick_up = false
+available_directions = [ 45, 0, -45, 135, -180, -135 ]
 
 [node name="DirectionHoop5" parent="." index="14" instance=ExtResource( 4 )]
 position = Vector2( 480, 352 )
 can_pick_up = false
+available_directions = [ 45, 0, -45, 135, -180, -135 ]
 
 [node name="DirectionHoop6" parent="." index="15" instance=ExtResource( 4 )]
 position = Vector2( 608, 352 )
 can_pick_up = false
+available_directions = [ 45, 0, -45, 135, -180, -135 ]
 
 [node name="DirectionHoop7" parent="." index="16" instance=ExtResource( 4 )]
 position = Vector2( 608, 224 )
 can_pick_up = false
+available_directions = [ 45, 0, -45, 135, -180, -135 ]
 
 [node name="DirectionHoop8" parent="." index="17" instance=ExtResource( 4 )]
 position = Vector2( 608, 96 )
 can_pick_up = false
+available_directions = [ 45, 0, -45, 135, -180, -135 ]
 
 [node name="DirectionHoop9" parent="." index="18" instance=ExtResource( 4 )]
 position = Vector2( 352, 352 )
 can_pick_up = false
+available_directions = [ 45, 0, -45, 135, -180, -135 ]
 
 [node name="DirectionHoop10" parent="." index="19" instance=ExtResource( 4 )]
 position = Vector2( 224, 352 )
@@ -710,9 +728,9 @@ margin_left = 733.0
 margin_top = 177.0
 margin_right = 985.0
 margin_bottom = 415.0
-custom_styles/normal = SubResource( 54 )
-custom_fonts/normal_font = SubResource( 55 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = SubResource( 55 )
+custom_styles/normal = SubResource( 54 )
 text = "You cannot edit a level while a ball is active on screen. 
 
 Infinite loop? Step off the pedestal"

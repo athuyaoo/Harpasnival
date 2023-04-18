@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://fonts/Delius/Delius-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://sfx/LevelWinSound.tscn" type="PackedScene" id=2]
@@ -13,13 +13,16 @@
 [ext_resource path="res://music/Game Music 1.tscn" type="PackedScene" id=11]
 [ext_resource path="res://tilemaps/skyboxes/FS003_Day_Sunless.tscn" type="PackedScene" id=12]
 [ext_resource path="res://level/assets/tileset.tres" type="TileSet" id=13]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 1, 1, 1, 1 )
+[ext_resource path="res://hoops/color_hoop/blue_hoop.png" type="Texture" id=14]
+[ext_resource path="res://hoops/color_hoop/red_hoop.png" type="Texture" id=15]
+[ext_resource path="res://hoops/color_hoop/purple_hoop.png" type="Texture" id=16]
 
 [sub_resource type="DynamicFont" id=2]
 size = 28
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
 
 [node name="Level 5" type="Node2D"]
 script = ExtResource( 10 )
@@ -39,6 +42,10 @@ position = Vector2( 800, 96 )
 [node name="ColorHoop" parent="." instance=ExtResource( 3 )]
 position = Vector2( 352, 96 )
 input_pickable = true
+blue_hoop = ExtResource( 14 )
+red_hoop = ExtResource( 15 )
+purple_hoop = ExtResource( 16 )
+hoop_color = 0
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
 position = Vector2( 96, 224 )
@@ -66,9 +73,9 @@ margin_left = 66.4983
 margin_top = -41.4915
 margin_right = 828.498
 margin_bottom = 46.5085
-custom_styles/normal = SubResource( 1 )
-custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 2 )
+custom_styles/normal = SubResource( 1 )
 text = "You can only place hoops 1 block away. Also you cannot place or pick up hoops while in mid-air"
 __meta__ = {
 "_edit_use_anchors_": false

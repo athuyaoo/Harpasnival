@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sneaky snitch remastered.mp3-ec9dfdb76c5a94a68e6bbffd58b52167.mp3str"
+
+[deps]
+
+source_file="res://music/sneaky snitch remastered.mp3"
+dest_files=[ "res://.import/sneaky snitch remastered.mp3-ec9dfdb76c5a94a68e6bbffd58b52167.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://level/assets/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://fonts/Delius/Delius-Regular.ttf" type="DynamicFontData" id=2]
@@ -13,15 +13,18 @@
 [ext_resource path="res://music/Game Music 2.tscn" type="PackedScene" id=11]
 [ext_resource path="res://hoops/color_hoop/color_hoop.tscn" type="PackedScene" id=12]
 [ext_resource path="res://pedestal/pedestal.tscn" type="PackedScene" id=13]
+[ext_resource path="res://hoops/color_hoop/blue_hoop.png" type="Texture" id=14]
+[ext_resource path="res://hoops/color_hoop/red_hoop.png" type="Texture" id=15]
+[ext_resource path="res://hoops/color_hoop/purple_hoop.png" type="Texture" id=16]
+
+[sub_resource type="DynamicFont" id=55]
+size = 32
+font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxFlat" id=54]
 content_margin_top = 0.0
 content_margin_bottom = 0.0
 bg_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="DynamicFont" id=55]
-size = 32
-font_data = ExtResource( 2 )
 
 [node name="Level 2" type="Node2D"]
 script = ExtResource( 3 )
@@ -40,6 +43,10 @@ position = Vector2( 736, 608 )
 [node name="ColorHoop" parent="." instance=ExtResource( 12 )]
 position = Vector2( 288, 608 )
 can_pick_up = false
+blue_hoop = ExtResource( 14 )
+red_hoop = ExtResource( 15 )
+purple_hoop = ExtResource( 16 )
+hoop_color = 0
 
 [node name="DirectionHoop" parent="." instance=ExtResource( 8 )]
 position = Vector2( 352, 96 )
@@ -57,9 +64,9 @@ margin_left = 288.0
 margin_top = 160.0
 margin_right = 805.0
 margin_bottom = 416.0
-custom_styles/normal = SubResource( 54 )
-custom_fonts/normal_font = SubResource( 55 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 55 )
+custom_styles/normal = SubResource( 54 )
 text = "Press X to pick up hoops
 Some hoops are not pickable
 

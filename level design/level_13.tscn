@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=2]
+[gd_scene load_steps=76 format=2]
 
 [ext_resource path="res://level design/template_level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://hoops/color_hoop/color_hoop.tscn" type="PackedScene" id=2]
@@ -6,7 +6,11 @@
 [ext_resource path="res://hoops/direction_hoop/direction_hoop.tscn" type="PackedScene" id=4]
 [ext_resource path="res://targets/target.tscn" type="PackedScene" id=5]
 [ext_resource path="res://character/player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ball/ball.tscn" type="PackedScene" id=7]
 [ext_resource path="res://level/assets/copy_collision.gd" type="Script" id=8]
+[ext_resource path="res://hoops/color_hoop/blue_hoop.png" type="Texture" id=9]
+[ext_resource path="res://hoops/color_hoop/red_hoop.png" type="Texture" id=10]
+[ext_resource path="res://hoops/color_hoop/purple_hoop.png" type="Texture" id=11]
 [ext_resource path="res://level/assets/tile.png" type="Texture" id=18]
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/planetCenter.png" type="Texture" id=19]
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/planetMid.png" type="Texture" id=20]
@@ -630,15 +634,25 @@ position = Vector2( 160, 224 )
 [node name="ColorHoop" parent="." index="6" instance=ExtResource( 2 )]
 position = Vector2( 478, 350 )
 input_pickable = true
+blue_hoop = ExtResource( 9 )
+red_hoop = ExtResource( 10 )
+purple_hoop = ExtResource( 11 )
+hoop_color = 0
 
 [node name="ColorHoop2" parent="." index="7" instance=ExtResource( 2 )]
 position = Vector2( 670, 222 )
 input_pickable = true
+blue_hoop = ExtResource( 9 )
+red_hoop = ExtResource( 10 )
+purple_hoop = ExtResource( 11 )
 hoop_color = 1
 
 [node name="ColorHoop3" parent="." index="8" instance=ExtResource( 2 )]
 position = Vector2( 542, 350 )
 input_pickable = true
+blue_hoop = ExtResource( 9 )
+red_hoop = ExtResource( 10 )
+purple_hoop = ExtResource( 11 )
 hoop_color = 2
 
 [node name="DirectionHoop" parent="." index="9" instance=ExtResource( 4 )]
@@ -668,13 +682,16 @@ available_directions = [ 45, 0, -45 ]
 [node name="DuplicatorHoop2" parent="." index="14" instance=ExtResource( 26 )]
 position = Vector2( 222, 350 )
 input_pickable = true
+first_direction = 0
 second_direction = -45
+ball_scene = ExtResource( 7 )
 
 [node name="DuplicatorHoop" parent="." index="15" instance=ExtResource( 26 )]
 position = Vector2( 350, 350 )
 input_pickable = true
 first_direction = 45
 second_direction = -45
+ball_scene = ExtResource( 7 )
 
 [node name="Target" parent="." index="16" instance=ExtResource( 5 )]
 position = Vector2( 350, 158 )

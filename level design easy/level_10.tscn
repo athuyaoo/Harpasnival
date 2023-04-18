@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=78 format=2]
 
 [ext_resource path="res://level design/template_level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://fonts/Delius/Delius-Regular.ttf" type="DynamicFontData" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://level design/level_11.tscn" type="PackedScene" id=8]
 [ext_resource path="res://level/assets/copy_collision.gd" type="Script" id=9]
 [ext_resource path="res://music/Game Music 2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://hoops/color_hoop/blue_hoop.png" type="Texture" id=11]
+[ext_resource path="res://hoops/color_hoop/red_hoop.png" type="Texture" id=12]
+[ext_resource path="res://hoops/color_hoop/purple_hoop.png" type="Texture" id=13]
 [ext_resource path="res://level/assets/tile.png" type="Texture" id=17]
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/planetCenter.png" type="Texture" id=18]
 [ext_resource path="res://tilemaps/platformer-pack-redux-360-assets/PNG/planetMid.png" type="Texture" id=19]
@@ -614,12 +617,12 @@ resource_local_to_scene = true
 } ]
 10/z_index = 0
 
-[sub_resource type="StyleBoxFlat" id=54]
-bg_color = Color( 0.243137, 0, 0.121569, 1 )
-
 [sub_resource type="DynamicFont" id=55]
 size = 140
 font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=54]
+bg_color = Color( 0.243137, 0, 0.121569, 1 )
 
 [node name="Level10" instance=ExtResource( 1 )]
 next_level_scene = ExtResource( 8 )
@@ -640,6 +643,9 @@ current_target_color = 1
 [node name="ColorHoop" parent="." index="6" instance=ExtResource( 3 )]
 position = Vector2( 736, 480 )
 can_pick_up = false
+blue_hoop = ExtResource( 11 )
+red_hoop = ExtResource( 12 )
+purple_hoop = ExtResource( 13 )
 hoop_color = 1
 
 [node name="DirectionHoop" parent="." index="7" instance=ExtResource( 5 )]
@@ -684,9 +690,9 @@ margin_left = 688.684
 margin_top = 61.7764
 margin_right = 1035.68
 margin_bottom = 335.776
-custom_styles/normal = SubResource( 54 )
-custom_fonts/normal_font = SubResource( 55 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = SubResource( 55 )
+custom_styles/normal = SubResource( 54 )
 text = "    ;) "
 __meta__ = {
 "_edit_use_anchors_": false

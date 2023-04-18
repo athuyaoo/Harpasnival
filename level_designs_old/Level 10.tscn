@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://fonts/Delius/Delius-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://sfx/LevelWinSound.tscn" type="PackedScene" id=2]
@@ -13,13 +13,16 @@
 [ext_resource path="res://music/Game Music 1.tscn" type="PackedScene" id=11]
 [ext_resource path="res://tilemaps/skyboxes/FS017_Sunset.tscn" type="PackedScene" id=12]
 [ext_resource path="res://level/assets/tileset.tres" type="TileSet" id=13]
-
-[sub_resource type="StyleBoxFlat" id=54]
-bg_color = Color( 1, 1, 1, 1 )
+[ext_resource path="res://hoops/color_hoop/blue_hoop.png" type="Texture" id=14]
+[ext_resource path="res://hoops/color_hoop/red_hoop.png" type="Texture" id=15]
+[ext_resource path="res://hoops/color_hoop/purple_hoop.png" type="Texture" id=16]
 
 [sub_resource type="DynamicFont" id=55]
 size = 28
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=54]
+bg_color = Color( 1, 1, 1, 1 )
 
 [node name="Level 10" type="Node2D"]
 position = Vector2( -12, 4 )
@@ -40,6 +43,9 @@ current_target_color = 1
 [node name="ColorHoop" parent="." instance=ExtResource( 3 )]
 position = Vector2( 748, 476 )
 can_pick_up = false
+blue_hoop = ExtResource( 14 )
+red_hoop = ExtResource( 15 )
+purple_hoop = ExtResource( 16 )
 hoop_color = 1
 
 [node name="DirectionHoop" parent="." instance=ExtResource( 6 )]
@@ -77,9 +83,9 @@ margin_left = 672.0
 margin_top = 32.0
 margin_right = 1056.0
 margin_bottom = 352.0
-custom_styles/normal = SubResource( 54 )
-custom_fonts/normal_font = SubResource( 55 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 55 )
+custom_styles/normal = SubResource( 54 )
 text = "You can't do a lot of things while airborne, and you cannot edit the level while a ball is active. 
 
 Recall that the pedestal is activated when it detects a weight ;)"
